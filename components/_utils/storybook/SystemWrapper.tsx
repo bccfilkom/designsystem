@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DecoratorFn } from '@storybook/react';
 
-import { Provider, GlobalStyles } from '../../foundations/theme';
+import { Provider, GlobalStyles } from '../../_foundations/theme';
 
 import 'typeface-inter';
 

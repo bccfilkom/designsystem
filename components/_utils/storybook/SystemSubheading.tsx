@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { Heading, Box } from '../../foundations';
+import { Heading, Box } from '../../_foundations';
 import { colors } from '../variables';
 
 const HorizontalRule = styled('hr')<SpaceProps>`

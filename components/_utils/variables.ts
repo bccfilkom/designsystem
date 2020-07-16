@@ -52,7 +52,7 @@ const SaturationShadeColors = {
     hijau04 : '#82E0AA',
     hijau05 : '#ABEBC6',
 }
-export const fonts = 'open sans, sans-serif';
+export const fonts = "'open sans', sans-serif";
 export const colors = {
     white: '#fff',
     black: '#000',

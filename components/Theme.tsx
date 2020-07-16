@@ -11,7 +11,7 @@ import {
   shadows,
   radiuss,
   componentStyles,
-} from './utils';
+} from './_utils';
 
 export const themeProps = {
   // Default styled-system theme props based on the theme specification:

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Heading, Text } from '../../foundations';
+import { Box, Heading, Text } from '../../_foundations';
 import StoryContainer from './StoryContainer';
 import { colors } from '../variables';
 
