@@ -1,5 +1,5 @@
-import card from './card';
-import { heading, paragraph, text } from './typography';
+import card from "./card";
+import { heading, paragraph, text } from "./typography";
 
 const componentStyles = {
   card,

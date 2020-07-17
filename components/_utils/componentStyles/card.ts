@@ -1,11 +1,11 @@
-import { transparentize } from 'polished';
-import { colors } from '../variables';
+import { transparentize } from "polished";
+import { colors } from "../variables";
 
 const shadowColor = transparentize(0.85, colors.hitam04);
 
 const card = {
   1: {
-    boxShadow: 'none',
+    boxShadow: "none",
   },
   2: {
     boxShadow: `0px 2px 6px ${shadowColor};`,

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import * as React from "react";
+import { DecoratorFn } from "@storybook/react";
 
-import { Provider, GlobalStyles } from '../../_foundations/theme';
+import { Provider, GlobalStyles } from "../../_foundations/theme";
 
-import 'typeface-inter';
+import "typeface-inter";
 
-const SystemWrapper: DecoratorFn = storyFn => (
+const SystemWrapper: DecoratorFn = (storyFn) => (
   <Provider>
     <GlobalStyles />
     {storyFn()}
