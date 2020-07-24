@@ -5,8 +5,15 @@ import RcTabs, {
   TabPaneProps,
 } from "rc-tabs";
 import classNames from "classnames";
-import style from "./style";
-// import "rc-tabs/assets/index.css";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  /* Your css reset here */
+
+  .app-title {
+    font-size: 40px;
+  }
+`;
 
 export type TabsType = "line" | "card" | "editable-card";
 export type TabsPosition = "top" | "right" | "bottom" | "left";
@@ -41,8 +48,6 @@ function Tabs({
     />
   );
 }
-`
-${style}`;
 
 Tabs.TabPane = TabPane;
 
