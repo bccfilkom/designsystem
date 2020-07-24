@@ -1,9 +1,5 @@
 import * as React from "react";
-import {
-  ComponentBlock,
-  SystemWrapper,
-  SystemBlock,
-} from "../_utils/storybook";
+import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import { Stack } from "../_foundations/common";
 import { Breadcrumbs, BreadcrumbItem } from ".";
 import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";

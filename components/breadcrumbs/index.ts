@@ -1,5 +1,5 @@
-export { default as Breadcrumbs } from "./components/Breadcrumbs";
-export * from "./components/Breadcrumbs";
+export { default as Breadcrumbs } from "./component/Breadcrumbs";
+export * from "./component/Breadcrumbs";
 
-export { default as BreadcrumbItem } from "./components/BreadcrumbItem";
-export * from "./components/BreadcrumbItem";
+export { default as BreadcrumbItem } from "./component/BreadcrumbItem";
+export * from "./component/BreadcrumbItem";
