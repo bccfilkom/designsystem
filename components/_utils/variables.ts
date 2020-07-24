@@ -3,7 +3,10 @@ const PrimaryColors = {
   biru: "#3498DB",
   hitam: "#1B1B1B",
   putih: "#FFFFFF",
+  primaryText: "rgba(20, 48, 69, 1)",
+  primaryText01: "rgba(20, 48, 69, .8)",
 };
+
 const SecondaryColors = {
   orange: "#FC642D",
   merah: "#E74C3C",
@@ -52,6 +55,7 @@ const SaturationShadeColors = {
   hijau04: "#82E0AA",
   hijau05: "#ABEBC6",
 };
+
 export const fonts = "'open sans', sans-serif";
 export const colors = {
   white: "#fff",

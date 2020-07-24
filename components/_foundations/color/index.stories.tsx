@@ -10,7 +10,7 @@ import { colors } from "../../_utils";
 import { Paragraph, Heading } from "../typography";
 
 export default {
-  title: "Core|Basic/color",
+  title: "Core|color",
   decorators: [SystemWrapper],
   parameters: {
     notes: { markdown: false },

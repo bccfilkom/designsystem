@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { colors, fonts } from '../../../_utils/variables';
+import { css } from "styled-components";
+import { colors, fonts } from "../../../_utils/variables";
 
 const fontBase = `
     /* cyrillic-ext */
@@ -296,10 +296,36 @@ const skeleton = `
 	background-repeat: no-repeat;
 	background-position: left -40px top 0;
   animation: shine 1s ease infinite;
-  &.w15 {
-    max-width: 15%;
-  } 
-}
+    &.w15 {
+      max-width: 15%;
+    } 
+    & > span {
+      display: none;
+      width:50px;
+    } 
+  }
+  li&.skeleton {    
+    padding: 0 45px;
+    margin: 0 calc(8px + .25rem);
+    font-size: initial;
+    &:first-child,
+    &.first-child {
+      &:before,
+      &.before {
+        content: "";
+      }
+      margin-left: 0;
+    }
+  
+    &:last-child,
+    &.last-child {
+      margin-right: 0;
+    }
+    &:before,
+    &.before {
+      left: -1rem;
+    }
+  }
 
 @keyframes shine {
 	to {
@@ -331,7 +357,7 @@ const base = css`
   body {
     font-family: ${fonts};
     font-weight: 400;
-    background-color: ${colors['bg-secondary']};
+    background-color: ${colors["bg-secondary"]};
     color: ${colors.black};
   }
 
@@ -369,7 +395,7 @@ const base = css`
     display: inline-block;
 
     &::before {
-      content: '......';
+      content: "......";
       display: inline-block;
       width: 10px;
       word-break: break-word;

@@ -12,7 +12,7 @@ import { Stack } from "../common";
 const readme = require("./README.md");
 
 export default {
-  title: "Core|Basic/Typography",
+  title: "Core|Typography",
   component: [Text, Heading, Paragraph],
   decorators: [SystemWrapper],
   parameters: {
