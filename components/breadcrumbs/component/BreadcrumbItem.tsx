@@ -11,6 +11,9 @@ export interface BreadcrumbItemProps {
   className?: string;
   style?: React.CSSProperties;
 }
+
+const Entities = require('html-entities').XmlEntities;
+const entities = new Entities();
 const Comp = styled("li")`
   position: relative;
   border: 1px solid transparent;
@@ -49,7 +52,7 @@ const Comp = styled("li")`
 
   &:before,
   &.before {
-    content: "${(props) => props.separator}";
+    content: "${(props) => props.separator == '&lt;' || '&gt;' ? entities.decode(props.separator) : props.separator}";
     color: ${themeGet("colors.primaryText", colors.primaryText)};
     position: absolute;
     left: -0.25rem;

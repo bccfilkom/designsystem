@@ -2,7 +2,7 @@ import * as React from "react";
 import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import { Stack } from "../_foundations/common";
 import { Breadcrumbs, BreadcrumbItem } from ".";
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 
 const readme = require("./README.md");
 
@@ -17,10 +17,12 @@ export default {
 
 const groupItem = "Item";
 const groupLastItem = "Last Item";
+const groupSeparator = "Separator";
+
 export const Example = () => (
   <SystemBlock title="Breadcrumbs">
     <Stack spacing="xl">
-      <Breadcrumbs separator="/">
+      <Breadcrumbs separator={select("Separator", { ">": ">", "/" : '/', "|": '|' }, ">", groupSeparator)}>
         <BreadcrumbItem>{text("Item - 1", "BCC", groupItem)}</BreadcrumbItem>
         <BreadcrumbItem>
           {text("Item - 2", "Design System", groupItem)}
