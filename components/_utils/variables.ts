@@ -9,6 +9,7 @@ const PrimaryColors = {
 
 const SecondaryColors = {
   orange: "#FC642D",
+  orange001: "#FB9E2E",
   merah: "#E74C3C",
   hijau: "#2ECC71",
 };

@@ -18,7 +18,7 @@ Read the [`styled-system` reference table](https://styled-system.com/table) for 
 We also provided a special `scale` prop on all components to automatically scale fonts based on their respective type scales.
 
 ```jsx
-import { Heading } from './components';
+import { Heading } from '.';
 
 export default function Component() {
   return <Heading scale={500}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>;
@@ -30,11 +30,11 @@ export default function Component() {
 The heading component is used for all headings.
 
 ```jsx
-import { AksaraReset, Heading } from '@aksara/ui-kit';
+import { Box, Heading } from '.';
 
 export default function MyApp({ children }) {
   return (
-    <AksaraReset>
+    <Box>
       <Heading scale={900}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
       <Heading scale={800}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
       <Heading scale={700}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
@@ -44,7 +44,7 @@ export default function MyApp({ children }) {
       <Heading scale={300}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
       <Heading scale={200}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
       <Heading scale={100}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
-    </AksaraReset>
+    </Box>
   );
 }
 ```
@@ -52,9 +52,9 @@ export default function MyApp({ children }) {
 Heading renders a `h2` by default. If you would like to determine which HTML element it renders, you can use the `as` prop.
 
 ```jsx
-<AksaraReset>
+<Box>
   <Heading as="h3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Heading>
-</AksaraReset>
+</Box>
 ```
 
 ### `Text` component
@@ -62,16 +62,16 @@ Heading renders a `h2` by default. If you would like to determine which HTML ele
 The text component is used for single line text.
 
 ```jsx
-import { AksaraReset, Text } from '@aksara/ui-kit';
+import { Box, Text } from '.';
 
 export default function MyApp({ children }) {
   return (
-    <AksaraReset>
+    <Box>
       <Text scale={500}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
       <Text scale={400}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
       <Text scale={300}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
       <Text scale={200}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-    </AksaraReset>
+    </Box>
   );
 }
 ```
@@ -79,15 +79,15 @@ export default function MyApp({ children }) {
 Text renders a `span` by default. If you would like to determine which HTML element it renders, you can use the `as` prop.
 
 ```jsx
-import { AksaraReset, Text } from '@aksara/ui-kit';
+import { Box, Text } from '.';
 
 export default function MyApp({ children }) {
   return (
-    <AksaraReset>
+    <Box>
       <Text scale={400} as="p">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Text>
-    </AksaraReset>
+    </Box>
   );
 }
 ```
