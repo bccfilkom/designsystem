@@ -116,7 +116,7 @@ export const Example = () => (
 );
 
 export const Skelaton = () => (
-  <SystemBlock title="" subtitle="">
+  <SystemBlock title="BCC Design System - Typography" subtitle="">
     <Stack spacing="xl">
       <Box display="grid" gridTemplateColumns="2fr 1fr">
         <Stack spacing="sm">

@@ -20,9 +20,16 @@ const groupLastItem = "Last Item";
 const groupSeparator = "Separator";
 
 export const Example = () => (
-  <SystemBlock title="Breadcrumbs">
+  <SystemBlock title="BCC Design System - Breadcrumbs">
     <Stack spacing="xl">
-      <Breadcrumbs separator={select("Separator", { ">": ">", "/" : '/', "|": '|' }, ">", groupSeparator)}>
+      <Breadcrumbs
+        separator={select(
+          "Separator",
+          { ">": ">", "/": "/", "|": "|" },
+          ">",
+          groupSeparator
+        )}
+      >
         <BreadcrumbItem>{text("Item - 1", "BCC", groupItem)}</BreadcrumbItem>
         <BreadcrumbItem>
           {text("Item - 2", "Design System", groupItem)}
@@ -36,11 +43,15 @@ export const Example = () => (
 );
 
 export const Skelaton = () => (
-  <SystemBlock title="Breadcrumbs">
+  <SystemBlock title="BCC Design System - Breadcrumbs">
     <Stack spacing="xl">
       <Breadcrumbs separator="/">
-        <BreadcrumbItem className="skeleton">BCC</BreadcrumbItem>
-        <BreadcrumbItem className="skeleton">Design System</BreadcrumbItem>
+        <BreadcrumbItem className="skeleton" lastItem>
+          BCC
+        </BreadcrumbItem>
+        <BreadcrumbItem className="skeleton" lastItem>
+          Design System
+        </BreadcrumbItem>
         <BreadcrumbItem className="skeleton" lastItem>
           Tabs
         </BreadcrumbItem>

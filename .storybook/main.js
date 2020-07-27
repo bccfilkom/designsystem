@@ -13,7 +13,7 @@ module.exports = {
   ],
   webpackFinal: config => {
     config.module.rules.push({
-      test: /\.tsx?$/,
+      test: /\.(ts|tsx)?$/,
       use: [
         {
           loader: require.resolve('babel-loader'),
