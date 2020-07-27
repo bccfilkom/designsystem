@@ -1,7 +1,6 @@
 import * as React from "react";
 import RcTabs, { TabPane, TabsProps as RcTabsProps } from "rc-tabs";
 import classNames from "classnames";
-import { BCCTabsStyle } from "./styled";
 
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
@@ -55,7 +54,6 @@ function Tabs({
         })}
         prefixCls={prefixCls}
       />
-      <BCCTabsStyle />
     </>
   );
 }

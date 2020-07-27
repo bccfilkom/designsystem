@@ -1,6 +1,7 @@
-import { createGlobalStyle } from "styled-components";
-import { colors } from "../../_utils";
-const BCCTabsStyle = createGlobalStyle`
+import { css } from "styled-components";
+import { colors } from "../../../_utils";
+
+const BCCTabsStyle = css`
   //Content Style
   .bcc-tabs-content {
     display: flex;
@@ -184,7 +185,7 @@ const BCCTabsStyle = createGlobalStyle`
     position: relative;
     font-weight: lighter;
     align-items: center;
-    font-weight: 600;
+    font-weight: 400;
     opacity: .5;
   }
   .bcc-tabs-tab:hover {
@@ -194,10 +195,6 @@ const BCCTabsStyle = createGlobalStyle`
   .bcc-tabs-tab-remove {
     border: 0;
     background: transparent;
-  }
-  .bcc-tabs-tab-btn {
-    font-weight: inherit;
-    line-height: 32px;
   }
   .bcc-tabs-tab.bcc-tabs-tab-disabled{
     opacity: .2;
@@ -251,5 +248,25 @@ const BCCTabsStyle = createGlobalStyle`
   .bcc-tabs-style-Darkk .bcc-tabs-ink-bar {
     background: ${colors.orange001};
   }
+  
+  //icon tabs 
+  .bcc-tabs-tab > .bcc-tabs-tab-btn > span.icon-with-text > svg{
+    font-size: 16px;
+  }
+  .bcc-tabs-tab:not(.bcc-tabs-tab-active) > .bcc-tabs-tab-btn > span.icon-with-text > p {
+    display:none
+  }
+  .bcc-tabs-tab.bcc-tabs-tab-active > .bcc-tabs-tab-btn > span.icon-with-text{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .bcc-tabs-tab.bcc-tabs-tab-active > .bcc-tabs-tab-btn > span.icon-with-text > svg {
+    margin-bottom: 4px;
+  }
 `;
-export { BCCTabsStyle };
+
+export default BCCTabsStyle;

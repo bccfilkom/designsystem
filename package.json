@@ -19,7 +19,8 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "typeface-inter": "^3.12.0"
+    "typeface-inter": "^3.12.0",
+    "typeface-open-sans": "^0.0.75"
   },
   "peerDependencies": {
     "react": "^16.10.0",
