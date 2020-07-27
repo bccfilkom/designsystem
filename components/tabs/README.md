@@ -2,6 +2,8 @@
 
 Tabs for BCC Design System. Make it easy for users to move one tab with another tab that contains content that is in a different view
 
+![alt text](https://github.com/maulana2007/designsystem/blob/master/components/tabs/example/1.png)
+
 ## Usage
 
 Tabs components contain the following rc-tabs hooks:
