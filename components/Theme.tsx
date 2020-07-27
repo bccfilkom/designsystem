@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ThemeProvider } from 'styled-components';
+import * as React from "react";
+import { ThemeProvider } from "styled-components";
 import {
   colors,
   space,
@@ -11,7 +11,7 @@ import {
   shadows,
   radiuss,
   componentStyles,
-} from './utils';
+} from "./_utils";
 
 export const themeProps = {
   // Default styled-system theme props based on the theme specification:
@@ -34,10 +34,10 @@ export const Theme: React.FC = ({ children }) => {
   return <ThemeProvider theme={themeProps}>{children}</ThemeProvider>;
 };
 
-export type Color = keyof typeof themeProps['colors'];
-export type Space = keyof typeof themeProps['space'];
-export type Elevation = keyof typeof themeProps['elevation'];
-export type TypeScale = keyof typeof themeProps['typeScale'];
+export type Color = keyof typeof themeProps["colors"];
+export type Space = keyof typeof themeProps["space"];
+export type Elevation = keyof typeof themeProps["elevation"];
+export type TypeScale = keyof typeof themeProps["typeScale"];
 export type CardElevation = keyof typeof componentStyles.card;
 export type TextScale = keyof typeof componentStyles.text;
 export type ParagraphScale = keyof typeof componentStyles.paragraph;
