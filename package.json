@@ -8,9 +8,6 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@styled-system/should-forward-prop": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "html-entities": "^1.3.1",
     "rc-tabs": "^11.5.5",
     "rc-util": "^5.0.5",
@@ -19,7 +16,6 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "typeface-inter": "^3.12.0",
     "typeface-open-sans": "^0.0.75"
   },
   "peerDependencies": {
@@ -33,9 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "preclean": "rimraf node_modules",
-    "clean": "yarn cache clean && yarn install"
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,7 +55,6 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^5.3.19",
-    "babel-plugin-root-import": "^6.5.0",
     "storybook-addon-jsx": "^7.3.1"
   }
 }
