@@ -25,6 +25,7 @@ const Slider = styled("span")`
   cursor: pointer;
   background-color: #ccc;
   border-radius: 34px;
+  transition: background-color 0.2s ease-in-out;
 
   &:before {
     position: absolute;
@@ -42,14 +43,13 @@ const Slider = styled("span")`
 const Input = styled("input")`
   display: none;
 
-  &:checked {
-    ::after {
-      background-color: #ff278c;
-    }
+  &:checked + * {
+    background-color: #ff278c;
   }
-
-  &:checked + Slider:before {
-    transform: translateX(40px);
+  &:checked + * {
+    &:before {
+      transform: translateX(50px);
+    }
   }
 `;
 
