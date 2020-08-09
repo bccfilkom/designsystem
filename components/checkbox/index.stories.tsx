@@ -15,7 +15,7 @@ export default {
 };
 
 export const Example = () => (
-  <SystemBlock title="BCC Design System - Switcher">
+  <SystemBlock title="BCC Design System - Checkbox">
     <Stack spacing="xl">
       <Checkbox />
     </Stack>
