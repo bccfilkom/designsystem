@@ -9,7 +9,6 @@ export interface SwitcherProps {
   checked?: boolean;
   style?: React.CSSProperties;
 }
-// margin: 0 10px;
 
 const Switch = styled("label")`
   position: relative;
@@ -61,17 +60,27 @@ const Input = styled("input")`
       transform: translateX(20px);
     }
   }
+
+  &:disabled + span {
+    cursor: not-allowed;
+    background-color: #d8d8d8;
+  }
 `;
 
-const Switcher: React.FC<SwitcherProps> = ({}) => {
+const Switcher: React.FC<SwitcherProps> = ({ checked, disabled }) => {
   return (
     <>
       <Switch>
-        <Input type="checkbox" defaultChecked={false} />
+        <Input type="checkbox" defaultChecked={checked} disabled={disabled} />
         <Slider />
       </Switch>
     </>
   );
+};
+
+Switcher.defaultProps = {
+  checked: false,
+  disabled: false,
 };
 
 export default Switcher;

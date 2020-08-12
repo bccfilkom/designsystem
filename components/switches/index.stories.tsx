@@ -21,3 +21,19 @@ export const Example = () => (
     </Stack>
   </SystemBlock>
 );
+
+export const DefaultChecked = () => (
+  <SystemBlock title="BCC Design System - Switcher">
+    <Stack spacing="xl">
+      <Switcher checked={true} />
+    </Stack>
+  </SystemBlock>
+);
+
+export const Disabled = () => (
+  <SystemBlock title="BCC Design System - Switcher">
+    <Stack spacing="xl">
+      <Switcher disabled={true} />
+    </Stack>
+  </SystemBlock>
+);

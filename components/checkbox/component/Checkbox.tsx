@@ -9,11 +9,11 @@ export interface CheckboxProps {
   style?: React.CSSProperties;
 }
 
-const Wrapper = styled("span")``;
+// const Wrapper = styled("span")``;
 
-const Input = styled("input")``;
+// const Input = styled("input")``;
 
-const Text = styled("label")``;
+// const Text = styled("label")``;
 
 const Checkbox: React.FC<CheckboxProps> = ({}) => {
   return (

@@ -1,31 +1,37 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  stories: ['../components/**/*.{story,stories}.{ts,tsx,js,jsx}'],
+  stories: ["../components/**/*.{story,stories}.{ts,tsx,js,jsx,mdx}"],
   addons: [
-    '@storybook/preset-create-react-app',
-    '@storybook/addon-actions',
-    '@storybook/addon-knobs',
-    '@storybook/addon-links',
-    '@storybook/addon-notes',
-    '@storybook/addon-a11y',
-    'storybook-addon-jsx/',
+    "@storybook/preset-create-react-app",
+    "@storybook/addon-actions",
+    "@storybook/addon-knobs",
+    "@storybook/addon-links",
+    "@storybook/addon-notes",
+    "@storybook/addon-a11y",
+    "storybook-addon-jsx/",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+      },
+    },
   ],
-  webpackFinal: config => {
+  webpackFinal: (config) => {
     config.module.rules.push({
       test: /\.(ts|tsx)?$/,
       use: [
         {
-          loader: require.resolve('babel-loader'),
+          loader: require.resolve("babel-loader"),
           options: {
-            presets: [['react-app', { flow: false, typescript: true }]],
+            presets: [["react-app", { flow: false, typescript: true }]],
           },
         },
       ],
     });
 
-    config.resolve.extensions.push('.ts', '.tsx','.js', '.jsx');
-    config.resolve.mainFields = ['browser', 'module', 'main'];
+    config.resolve.extensions.push(".ts", ".tsx", ".js", ".jsx");
+    config.resolve.mainFields = ["browser", "module", "main"];
     return config;
   },
 };
