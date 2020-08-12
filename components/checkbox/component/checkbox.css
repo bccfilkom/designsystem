@@ -5,22 +5,23 @@
 }
 .checkbox .box {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid #b5b5b5;
-  border-radius: 0.15rem;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #888;
+  border-radius: 3px;
   margin-bottom: -0.25rem;
+  margin-right: 16px;
   transition: all 0.35s ease;
 }
 .checkbox:hover .box {
-  border: 2px solid #3bb1ff;
+  border: 2px solid #3598db;
 }
 
 .check {
   display: none;
 }
 .check:checked + .box {
-  border: 2px solid #3bb1ff;
+  border: 2px solid #e4f4ff;
   background: #3bb1ff;
 }
 .check:checked + .box::after {

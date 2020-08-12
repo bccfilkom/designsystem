@@ -14,7 +14,7 @@ export default {
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const Example = () => (
+export const Default = () => (
   <SystemBlock title="BCC Design System - Switcher">
     <Stack spacing="xl">
       <Switcher />
@@ -30,7 +30,7 @@ export const DefaultChecked = () => (
   </SystemBlock>
 );
 
-export const Disabled = () => (
+export const DefaultDisabled = () => (
   <SystemBlock title="BCC Design System - Switcher">
     <Stack spacing="xl">
       <Switcher disabled={true} />

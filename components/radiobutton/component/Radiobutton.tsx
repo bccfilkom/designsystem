@@ -5,6 +5,8 @@ import { themeGet } from "@styled-system/theme-get";
 import { colors } from "../../_utils";
 
 export interface RadiobuttonProps {
+  name: String;
+  label?: String;
   disabled?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;
@@ -93,21 +95,31 @@ const Label = styled("label")`
   line-height: 20px;
 `;
 
-const Radiobutton: React.FC<RadiobuttonProps> = ({}) => {
+const Radiobutton: React.FC<RadiobuttonProps> = ({
+  name,
+  checked,
+  label,
+  disabled,
+}) => {
   return (
     <>
       <RadioContainer>
-        <Radio type="radio" id="radio_1" name="my-radio" defaultChecked />
+        <Radio
+          type="radio"
+          id="radio_1"
+          name={name}
+          defaultChecked={checked}
+          disabled={disabled}
+        />
         <Label htmlFor="radio_1">
           <Circle />
-          Radio Button
+          {label}
         </Label>
       </RadioContainer>
-      <RadioContainer>
+      {/* <RadioContainer>
         <Radio type="radio" id="radio_2" name="my-radio" />
         <Label htmlFor="radio_2">
           <Circle />
-          {/* <Shadow /> */}
           Radio Button
         </Label>
       </RadioContainer>
@@ -117,22 +129,16 @@ const Radiobutton: React.FC<RadiobuttonProps> = ({}) => {
           <Circle />
           Radio Button
         </Label>
-      </RadioContainer>
-      {/* <div className="form-group">
-        <input
-          className="custom-radio"
-          type="radio"
-          id="radio_4"
-          name="my-radio"
-          value="1"
-          disabled
-        />
-        <label htmlFor="radio_4">
-          <span className="radio"></span> Disabled radio button
-        </label>
-      </div> */}
+      </RadioContainer> */}
     </>
   );
+};
+
+Radiobutton.defaultProps = {
+  name: "",
+  label: "Option",
+  checked: false,
+  disabled: false,
 };
 
 export default Radiobutton;

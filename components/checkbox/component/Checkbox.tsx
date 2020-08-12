@@ -26,7 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = ({}) => {
           type="checkbox"
         />
         <span className="box"></span>
-        Check me :)
+        Checkbox
       </label>
     </>
   );

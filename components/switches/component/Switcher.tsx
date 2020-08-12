@@ -20,6 +20,9 @@ const Switch = styled("label")`
   border-radius: 12px;
   transition: border 0.2s ease-in-out;
   &:hover {
+    if (disabled===true) {
+      border: 3px solid #f1f1f1;
+    }
     border: 3px solid #e4f4ff;
     border-radius: 12px;
   }
