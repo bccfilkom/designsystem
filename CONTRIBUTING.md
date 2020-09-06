@@ -7,9 +7,14 @@ This project is bound by a [Code of Conduct](CODE_OF_CONDUCT.md).
 The simple steps of contributing to any GitHub project are as follows:
 
 1. [Fork the repository](https://github.com/)
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push -u origin my-new-feature`
+2. Create your own branch:  
+   We suggest to use this branch prefix name:  
+   a. bugfix  `git checkout -b bugfix/image-not-loaded`  
+      please use this prefix if you want to resolve some issues in our project  
+   b. feature `git checkout -b feature/add-circle-images`  
+      please use this prefix if you want to add something new  
+3. Commit your changes: `git commit -am 'Add/Resolve some feature'`
+4. Push to the branch: `git push -u origin <prefix>/<your branch name>`
 5. Create a [Pull Request](https://github.com/)!
 
 To keep your fork of in sync with this repository, [follow this guide](https://help.github.com/articles/syncing-a-fork/).
