@@ -25,7 +25,7 @@ export const Default = () => (
 export const DefaultChecked = () => (
   <SystemBlock title="BCC Design System - Switcher">
     <Stack spacing="xl">
-      <Switcher checked={true} />
+      <Switcher checked />
     </Stack>
   </SystemBlock>
 );
@@ -33,7 +33,7 @@ export const DefaultChecked = () => (
 export const DefaultDisabled = () => (
   <SystemBlock title="BCC Design System - Switcher">
     <Stack spacing="xl">
-      <Switcher disabled={true} />
+      <Switcher disabled />
     </Stack>
   </SystemBlock>
 );

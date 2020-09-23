@@ -26,7 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = ({}) => {
           type="checkbox"
         />
         <span className="box"></span>
-        Checkbox
+        BCC Design System
       </label>
     </>
   );

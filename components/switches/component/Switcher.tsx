@@ -64,6 +64,7 @@ const Input = styled("input")`
     }
   }
 
+
   &:disabled + span {
     cursor: not-allowed;
     background-color: #d8d8d8;

@@ -10,7 +10,7 @@ export interface RadioGroupProps {
   style?: React.CSSProperties;
 }
 
-const RadioContainer = styled("div")`
+const RadioContainer = styled("form")`
   margin: 10px 0;
   padding: 0;
   position: relative;
