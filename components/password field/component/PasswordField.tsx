@@ -3,16 +3,18 @@ import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 import PropTypes from "prop-types";
 import { colors } from "../../_utils";
-import SearchIcon from "@material-ui/icons/Search";
-import CancelIcon from "@material-ui/icons/Cancel";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Lock from "@material-ui/icons/Lock";
 
-export interface SearchProps {
+export interface PasswordFieldProps {
   disabled?: boolean;
+  visibilityEye?: boolean;
   placeholder?: string;
   value?: string;
   hintText?: string;
   handleChange?: Function;
-  handleClear?: Function;
+  handleShow?: Function;
   style?: React.CSSProperties;
 }
 
@@ -30,7 +32,7 @@ const FieldContainer = styled("div")`
   height: 48px;
 `;
 
-const CloseContainer = styled("div")`
+const EyeContainer = styled("div")`
   cursor: pointer;
   align-self: center;
 `;
@@ -65,37 +67,42 @@ const FieldInput = styled("input")`
   }
 `;
 
-const Search: React.FC<SearchProps> = ({
+const PasswordField: React.FC<PasswordFieldProps> = ({
   disabled,
   placeholder,
   hintText,
   handleChange,
-  handleClear,
+  handleShow,
   value,
+  visibilityEye,
   ...rest
 }) => {
   return (
     <FieldContainer>
-      <SearchIcon style={{ color: "#D8D8D8" }} />
+      <Lock style={{ color: "#D8D8D8" }} />
       <FieldInput
         placeholder={placeholder}
         value={value}
+        type={`${visibilityEye ? "text" : "password"}`}
         onChange={handleChange}
       />
-      {value.length > 0 ? (
-        <CloseContainer>
-          <CancelIcon onClick={handleClear} style={{ color: "#D8D8D8" }} />{" "}
-        </CloseContainer>
-      ) : null}
+      <EyeContainer>
+        {visibilityEye ? (
+          <VisibilityOff onClick={handleShow} style={{ color: "#888888" }} />
+        ) : (
+          <Visibility onClick={handleShow} style={{ color: "#888888" }} />
+        )}
+      </EyeContainer>
     </FieldContainer>
   );
 };
 
-Search.defaultProps = {
+PasswordField.defaultProps = {
   disabled: false,
-  placeholder: "Placeholder Text",
+  visibilityEye: false,
+  placeholder: "Password",
   hintText: "",
   value: "",
 };
 
-export default Search;
+export default PasswordField;
