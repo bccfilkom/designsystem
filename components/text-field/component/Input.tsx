@@ -4,13 +4,13 @@ import { themeGet } from "@styled-system/theme-get";
 import PropTypes from "prop-types";
 import { colors } from "../../_utils";
 
-export interface TextFieldProps {
+export interface InputProps {
   disabled?: boolean;
   checked?: boolean;
   placeholder?: string;
+  type?: string;
   value?: string;
-  isWarning?: boolean;
-  isError?: boolean;
+  action?: string;
   handleChange?: Function;
   hintText?: string;
   style?: React.CSSProperties;
@@ -36,9 +36,28 @@ const InputField = styled("input")`
     color: rgba(20, 48, 69, 0.5);
   }
 
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   &:active,
   &:focus {
-    border-color: ${(props) => (props.isWarning ? "#fb9e2e" : "#3598DB")};
+    border-color: ${(props) => {
+      switch (props.action) {
+        case "normal":
+          return "#3598DB";
+        case "warning":
+          return "#fb9e2e";
+        case "error":
+          return "#E84C3D";
+      }
+    }};
     color: #143045;
   }
 
@@ -48,7 +67,7 @@ const InputField = styled("input")`
     background-color: #fbfbfb;
 
     &::placeholder {
-      color: #d8d8d8;S
+      color: #d8d8d8;
     }
   }
 `;
@@ -56,19 +75,29 @@ const InputField = styled("input")`
 const HintText = styled("span")`
   margin-top: 8px;
   font-size: 12px;
-  color: ${(props) => (props.isWarning ? "#FB9E2E" : "#143045")}
-  color: ${(props) => (props.isError ? "##E84C3D" : "#143045")}
+  color: ${(props) => {
+    switch (props.action) {
+      case "normal":
+        return "#143045";
+      case "warning":
+        return "#fb9e2e";
+      case "error":
+        return "#E84C3D";
+    }
+  }};
 };
   line-height: 14px;
 `;
 
-const TextField: React.FC<TextFieldProps> = ({
+const Input: React.FC<InputProps> = ({
   checked,
   disabled,
   placeholder,
   hintText,
-  isWarning,
-  isError,
+  value,
+  handleChange,
+  action,
+  type,
   ...rest
 }) => {
   return (
@@ -76,24 +105,25 @@ const TextField: React.FC<TextFieldProps> = ({
       <InputField
         placeholder={placeholder}
         disabled={disabled}
-        isWarning={isWarning}
+        action={action}
+        value={value}
+        onChange={handleChange}
+        type={type}
       />
-      {HintText ? (
-        <HintText isWarning={isWarning} isError={isError}>
-          {hintText}
-        </HintText>
+      {hintText.length > 0 ? (
+        <HintText action={action}>{hintText}</HintText>
       ) : null}
     </ContainerInput>
   );
 };
 
-TextField.defaultProps = {
+Input.defaultProps = {
   checked: false,
   disabled: false,
   placeholder: "Placeholder Text",
   hintText: "",
-  isWarning: false,
-  isError: false,
+  action: "normal",
+  type: "text",
 };
 
-export default TextField;
+export default Input;

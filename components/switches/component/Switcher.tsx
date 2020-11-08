@@ -7,6 +7,7 @@ import { colors } from "../../_utils";
 export interface SwitcherProps {
   disabled?: boolean;
   checked?: boolean;
+  onSlide?: Function;
   style?: React.CSSProperties;
 }
 
@@ -64,18 +65,22 @@ const Input = styled("input")`
     }
   }
 
-
   &:disabled + span {
     cursor: not-allowed;
     background-color: #d8d8d8;
   }
 `;
 
-const Switcher: React.FC<SwitcherProps> = ({ checked, disabled }) => {
+const Switcher: React.FC<SwitcherProps> = ({ checked, disabled, onSlide }) => {
   return (
     <>
       <Switch>
-        <Input type="checkbox" defaultChecked={checked} disabled={disabled} />
+        <Input
+          type="checkbox"
+          disabled={disabled}
+          checked={checked}
+          onChange={onSlide}
+        />
         <Slider />
       </Switch>
     </>

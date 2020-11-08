@@ -7,7 +7,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Lock from "@material-ui/icons/Lock";
 
-export interface PasswordFieldProps {
+export interface PasswordProps {
   disabled?: boolean;
   visibilityEye?: boolean;
   placeholder?: string;
@@ -21,15 +21,7 @@ export interface PasswordFieldProps {
 const FieldContainer = styled("div")`
   display: inline-flex;
   align-items: center;
-  padding: 16px;
-  border: 1.5px solid #d8d8d8;
-  box-sizing: border-box;
-  font-size: 14px;
-  border-radius: 14px;
-  background-color: white;
-  outline: none;
-  min-width: 280px;
-  height: 48px;
+  position: relative;
 `;
 
 const EyeContainer = styled("div")`
@@ -38,13 +30,16 @@ const EyeContainer = styled("div")`
 `;
 
 const FieldInput = styled("input")`
-  background-color: transparent;
-  border: none;
+  display: inline-block;
+  padding: 16px 48px;
+  border: 1.5px solid #d8d8d8;
   box-sizing: border-box;
-  margin-left: 8px;
   font-size: 14px;
+  border-radius: 14px;
+  background-color: white;
   outline: none;
-  width: 180px;
+  min-width: 280px;
+  height: 48px;
 
   &::placeholder {
     color: rgba(20, 48, 69, 0.5);
@@ -52,7 +47,7 @@ const FieldInput = styled("input")`
 
   &:active,
   &:focus {
-    border-color: ${(props) => (props.isWarning ? "#fb9e2e" : "#3598DB")};
+    border-color: #3598db;
     color: #143045;
   }
 
@@ -62,12 +57,20 @@ const FieldInput = styled("input")`
     background-color: #fbfbfb;
 
     &::placeholder {
-      color: #d8d8d8;S
+      color: #d8d8d8;
     }
   }
 `;
 
-const PasswordField: React.FC<PasswordFieldProps> = ({
+const HintText = styled("div")`
+  width: inherit;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #143045;
+  line-height: 14px;
+`;
+
+const Password: React.FC<PasswordProps> = ({
   disabled,
   placeholder,
   hintText,
@@ -78,31 +81,41 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
   ...rest
 }) => {
   return (
-    <FieldContainer>
-      <Lock style={{ color: "#D8D8D8" }} />
-      <FieldInput
-        placeholder={placeholder}
-        value={value}
-        type={`${visibilityEye ? "text" : "password"}`}
-        onChange={handleChange}
-      />
-      <EyeContainer>
+    <>
+      <FieldContainer>
+        <Lock
+          style={{ color: "#D8D8D8", position: "absolute", left: "16px" }}
+        />
         {visibilityEye ? (
-          <VisibilityOff onClick={handleShow} style={{ color: "#888888" }} />
+          <VisibilityOff
+            onClick={handleShow}
+            style={{ color: "#888888", position: "absolute", right: "16px" }}
+          />
         ) : (
-          <Visibility onClick={handleShow} style={{ color: "#888888" }} />
+          <Visibility
+            onClick={handleShow}
+            style={{ color: "#888888", position: "absolute", right: "16px" }}
+          />
         )}
-      </EyeContainer>
-    </FieldContainer>
+        <FieldInput
+          placeholder={placeholder}
+          disabled={disabled}
+          value={value}
+          type={`${visibilityEye ? "text" : "password"}`}
+          onChange={handleChange}
+        />
+      </FieldContainer>
+      {hintText.length > 0 ? <HintText>{hintText}</HintText> : null}
+    </>
   );
 };
 
-PasswordField.defaultProps = {
+Password.defaultProps = {
   disabled: false,
   visibilityEye: false,
-  placeholder: "Password",
   hintText: "",
+  placeholder: "Password",
   value: "",
 };
 
-export default PasswordField;
+export default Password;

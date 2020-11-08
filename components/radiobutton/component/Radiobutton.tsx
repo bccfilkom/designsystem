@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 import { themeGet } from "@styled-system/theme-get";
 import { colors } from "../../_utils";
 
-export interface RadiobuttonProps {
-  name?: String;
+export interface RadioButtonProps {
   value?: String;
   disabled?: boolean;
+  id?: String;
   checked?: boolean;
+  handleChange?: Function;
   style?: React.CSSProperties;
 }
 
@@ -104,11 +105,12 @@ const Label = styled("label")`
   line-height: 20px;
 `;
 
-const Radiobutton: React.FC<RadiobuttonProps> = ({
-  name,
+const RadioButton: React.FC<RadioButtonProps> = ({
   checked,
   children,
   disabled,
+  handleChange,
+  id,
   value,
 }) => {
   return (
@@ -116,13 +118,13 @@ const Radiobutton: React.FC<RadiobuttonProps> = ({
       <RadioContainer>
         <Radio
           type="radio"
-          id="radio"
-          name={name}
+          id={id}
           value={value}
-          defaultChecked={checked}
+          checked={checked}
           disabled={disabled}
+          onChange={handleChange}
         />
-        <Label htmlFor="radio">
+        <Label htmlFor={id}>
           <Circle />
           {children}
         </Label>
@@ -131,9 +133,9 @@ const Radiobutton: React.FC<RadiobuttonProps> = ({
   );
 };
 
-Radiobutton.defaultProps = {
+RadioButton.defaultProps = {
   checked: false,
   disabled: false,
 };
 
-export default Radiobutton;
+export default RadioButton;

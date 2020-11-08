@@ -6,43 +6,97 @@ import {
   SystemBlock,
   ComponentBlock,
 } from "../_utils/storybook";
-import Radiobutton from "./component/Radiobutton";
+import RadioButton from "./component/RadioButton";
 import RadioGroup from "./component/RadioGroup";
+import { useState } from "react";
 
 export default {
-  title: "Component|Radiobutton",
+  title: "Component|Radio",
   // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const Default = () => (
-  <SystemBlock title="BCC Design System - Radio Button">
-    <Stack spacing="xl">
-      <RadioGroup>
-        <Radiobutton name="option" checked={true}>
-          BCC
-        </Radiobutton>
-        <Radiobutton name="option">Design</Radiobutton>
-        <Radiobutton name="option">System</Radiobutton>
-      </RadioGroup>
-    </Stack>
-  </SystemBlock>
-);
+export const Default = () => {
+  const [option, setOption] = useState("BCC");
 
-export const Disabled = () => (
-  <SystemBlock title="BCC Design System - Radio Button">
-    <Stack spacing="xl">
-      <RadioGroup>
-        <Radiobutton name="option" checked={true} disabled>
-          BCC
-        </Radiobutton>
-        <Radiobutton name="option" disabled>
-          Design
-        </Radiobutton>
-        <Radiobutton name="option" disabled>
-          System
-        </Radiobutton>
-      </RadioGroup>
-    </Stack>
-  </SystemBlock>
-);
+  const handleRadio = (e) => {
+    setOption(e.target.value);
+  };
+
+  return (
+    <SystemBlock title="BCC Design System - Radio">
+      <Stack spacing="xl">
+        <RadioGroup>
+          <RadioButton
+            id="option1"
+            value="BCC"
+            checked={option == "BCC"}
+            handleChange={handleRadio}
+          >
+            BCC
+          </RadioButton>
+          <RadioButton
+            id="option2"
+            value="Design"
+            checked={option == "Design"}
+            handleChange={handleRadio}
+          >
+            Design
+          </RadioButton>
+          <RadioButton
+            value="System"
+            id="option3"
+            checked={option == "System"}
+            handleChange={handleRadio}
+          >
+            System
+          </RadioButton>
+        </RadioGroup>
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Disable = () => {
+  const [option, setOption] = useState("BCC");
+
+  const handleRadio = (e) => {
+    setOption(e.target.value);
+  };
+
+  return (
+    <SystemBlock title="BCC Design System - Radio Disable">
+      <Stack spacing="xl">
+        <RadioGroup>
+          <RadioButton
+            id="option1"
+            value="BCC"
+            checked={option == "BCC"}
+            handleChange={handleRadio}
+            disabled
+          >
+            BCC
+          </RadioButton>
+          <RadioButton
+            id="option2"
+            value="Design"
+            checked={option == "Design"}
+            handleChange={handleRadio}
+            disabled
+          >
+            Design
+          </RadioButton>
+          <RadioButton
+            value="System"
+            id="option3"
+            checked={option == "System"}
+            handleChange={handleRadio}
+            disabled
+          >
+            System
+          </RadioButton>
+        </RadioGroup>
+      </Stack>
+    </SystemBlock>
+  );
+};

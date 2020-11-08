@@ -6,42 +6,110 @@ import {
   SystemBlock,
   ComponentBlock,
 } from "../_utils/storybook";
-import TextField from "./component/TextField";
+import Input from "./component/Input";
+import { useState } from "react";
 
 export default {
-  title: "Component|Text Field",
+  title: "Component|Input",
   // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const Default = () => (
-  <SystemBlock title="BCC Design System - Text Field">
-    <Stack spacing="xl">
-      <TextField hintText="Hint Text" />
-    </Stack>
-  </SystemBlock>
-);
+export const Default = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input value={value} handleChange={(e) => setValue(e.target.value)} />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Placeholder = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          placeholder="Full Name"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const HintText = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Type Your Hint Text Here"
+          placeholder="Full Name"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+export const TypeNumber = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          placeholder="Age"
+          type="number"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Warning = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Warning Text"
+          action="warning"
+          placeholder="Warning Placholder"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Error = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Error Text"
+          action="error"
+          placeholder="Error Placholder"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
 
 export const Disabled = () => (
-  <SystemBlock title="BCC Design System - Text Field">
+  <SystemBlock title="BCC Design System - Input">
     <Stack spacing="xl">
-      <TextField disabled />
-    </Stack>
-  </SystemBlock>
-);
-
-export const Warning = () => (
-  <SystemBlock title="BCC Design System - Text Field">
-    <Stack spacing="xl">
-      <TextField hintText="Warning Text" isWarning={true} />
-    </Stack>
-  </SystemBlock>
-);
-
-export const Error = () => (
-  <SystemBlock title="BCC Design System - Text Field">
-    <Stack spacing="xl">
-      <TextField hintText="Warning Text" isError />
+      <Input disabled />
     </Stack>
   </SystemBlock>
 );

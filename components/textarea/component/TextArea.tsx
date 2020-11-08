@@ -3,15 +3,22 @@ import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 import PropTypes from "prop-types";
 import { colors } from "../../_utils";
+import Warning from "@material-ui/icons/Warning";
 
 export interface TextAreaProps {
   disabled?: boolean;
   placeholder?: string;
   value?: string;
+  isWarning?: false;
   hintText?: string;
   handleChange?: Function;
   style?: React.CSSProperties;
 }
+
+const InputContainer = styled("div")`
+  display: inline-block;
+  position: relative;
+`;
 
 const FieldInput = styled("textarea")`
 display: inline-block;
@@ -45,27 +52,54 @@ height: 120px;
   }
 }`;
 
+const HintText = styled("div")`
+  margin-top: 8px;
+  font-size: 12px;
+  color: ${(props) => (props.isWarning ? "#FB9E2E" : "#143045")}
+};
+  line-height: 14px;
+`;
+
 const TextArea: React.FC<TextAreaProps> = ({
   disabled,
   placeholder,
   hintText,
+  isWarning,
   handleChange,
   value,
   ...rest
 }) => {
   return (
-    <FieldInput
-      placeholder={placeholder}
-      value={value}
-      onChange={handleChange}
-      disabled={disabled}
-    />
+    <>
+      <InputContainer>
+        {isWarning && value.length > 0 ? (
+          <Warning
+            style={{
+              color: "#FB9E2E",
+              position: "absolute",
+              right: "8px",
+              top: "8px",
+            }}
+          />
+        ) : null}
+
+        <FieldInput
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+          disabled={disabled}
+          isWarning={isWarning}
+        />
+      </InputContainer>
+      {hintText.length > 0 ? <HintText>{hintText}</HintText> : null}
+    </>
   );
 };
 
 TextArea.defaultProps = {
   disabled: false,
-  placeholder: "Placeholder Text",
+  isWarning: false,
+  placeholder: "Placeholder Text Area",
   hintText: "",
   value: "",
 };

@@ -11,6 +11,7 @@ export interface SearchProps {
   placeholder?: string;
   value?: string;
   hintText?: string;
+  clearValue?: boolean;
   handleChange?: Function;
   handleClear?: Function;
   style?: React.CSSProperties;
@@ -19,7 +20,12 @@ export interface SearchProps {
 const FieldContainer = styled("div")`
   display: inline-flex;
   align-items: center;
-  padding: 16px;
+  position: relative;
+`;
+
+const FieldInput = styled("input")`
+  display: inline-block;
+  padding: 16px 48px;
   border: 1.5px solid #d8d8d8;
   box-sizing: border-box;
   font-size: 14px;
@@ -28,21 +34,6 @@ const FieldContainer = styled("div")`
   outline: none;
   min-width: 280px;
   height: 48px;
-`;
-
-const CloseContainer = styled("div")`
-  cursor: pointer;
-  align-self: center;
-`;
-
-const FieldInput = styled("input")`
-  background-color: transparent;
-  border: none;
-  box-sizing: border-box;
-  margin-left: 8px;
-  font-size: 14px;
-  outline: none;
-  width: 180px;
 
   &::placeholder {
     color: rgba(20, 48, 69, 0.5);
@@ -50,7 +41,7 @@ const FieldInput = styled("input")`
 
   &:active,
   &:focus {
-    border-color: ${(props) => (props.isWarning ? "#fb9e2e" : "#3598DB")};
+    border-color: #3598db;
     color: #143045;
   }
 
@@ -60,7 +51,7 @@ const FieldInput = styled("input")`
     background-color: #fbfbfb;
 
     &::placeholder {
-      color: #d8d8d8;S
+      color: #d8d8d8;
     }
   }
 `;
@@ -71,22 +62,33 @@ const Search: React.FC<SearchProps> = ({
   hintText,
   handleChange,
   handleClear,
+  clearValue,
   value,
   ...rest
 }) => {
   return (
     <FieldContainer>
-      <SearchIcon style={{ color: "#D8D8D8" }} />
+      <SearchIcon
+        style={{ color: "#D8D8D8", position: "absolute", left: "16px" }}
+      />
+      {value.length > 0 && clearValue ? (
+        <CancelIcon
+          onClick={handleClear}
+          style={{
+            color: "#D8D8D8",
+            position: "absolute",
+            right: "16px",
+            cursor: "pointer",
+          }}
+        />
+      ) : null}
       <FieldInput
         placeholder={placeholder}
         value={value}
+        type="text"
         onChange={handleChange}
+        disabled={disabled}
       />
-      {value.length > 0 ? (
-        <CloseContainer>
-          <CancelIcon onClick={handleClear} style={{ color: "#D8D8D8" }} />{" "}
-        </CloseContainer>
-      ) : null}
     </FieldContainer>
   );
 };
@@ -95,6 +97,7 @@ Search.defaultProps = {
   disabled: false,
   placeholder: "Placeholder Text",
   hintText: "",
+  clearValue: false,
   value: "",
 };
 

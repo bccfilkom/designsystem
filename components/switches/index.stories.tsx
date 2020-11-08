@@ -7,6 +7,7 @@ import {
   ComponentBlock,
 } from "../_utils/storybook";
 import Switcher from "./component/Switcher";
+import { useState } from "react";
 
 export default {
   title: "Component|Switcher",
@@ -14,21 +15,27 @@ export default {
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const Default = () => (
-  <SystemBlock title="BCC Design System - Switcher">
-    <Stack spacing="xl">
-      <Switcher />
-    </Stack>
-  </SystemBlock>
-);
+export const Default = () => {
+  const [isSwitch, setIsSwitch] = useState(false);
+  return (
+    <SystemBlock title="BCC Design System - Switcher">
+      <Stack spacing="xl">
+        <Switcher checked={isSwitch} onSlide={() => setIsSwitch(!isSwitch)} />
+      </Stack>
+    </SystemBlock>
+  );
+};
 
-export const DefaultChecked = () => (
-  <SystemBlock title="BCC Design System - Switcher">
-    <Stack spacing="xl">
-      <Switcher checked />
-    </Stack>
-  </SystemBlock>
-);
+export const DefaultChecked = () => {
+  const [isSwitch, setIsSwitch] = useState(true);
+  return (
+    <SystemBlock title="BCC Design System - Switcher">
+      <Stack spacing="xl">
+        <Switcher checked={isSwitch} onSlide={() => setIsSwitch(!isSwitch)} />
+      </Stack>
+    </SystemBlock>
+  );
+};
 
 export const DefaultDisabled = () => (
   <SystemBlock title="BCC Design System - Switcher">

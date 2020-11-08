@@ -1,2 +1,2 @@
-export { default as PasswordField } from "./component/PasswordField";
-export * from "./component/PasswordField";
+export { default as Password } from "./component/Password";
+export * from "./component/Password";

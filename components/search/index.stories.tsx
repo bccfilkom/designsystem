@@ -22,6 +22,37 @@ export const Default = () => {
         <Search
           value={search}
           handleChange={(e) => setSearch(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Placeholder = () => {
+  const [search, setSearch] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Search Placeholder">
+      <Stack spacing="xl">
+        <Search
+          value={search}
+          placeholder="What are you looking for ?"
+          handleChange={(e) => setSearch(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const ClearValue = () => {
+  const [search, setSearch] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Search Clear Value">
+      <Stack spacing="xl">
+        <Search
+          value={search}
+          placeholder="Search here"
+          clearValue
+          handleChange={(e) => setSearch(e.target.value)}
           handleClear={() => setSearch("")}
         />
       </Stack>
@@ -32,7 +63,7 @@ export const Default = () => {
 export const Disabled = () => (
   <SystemBlock title="BCC Design System - Search">
     <Stack spacing="xl">
-      <Search />
+      <Search disabled />
     </Stack>
   </SystemBlock>
 );
