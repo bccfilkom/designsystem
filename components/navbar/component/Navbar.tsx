@@ -17,14 +17,18 @@ export type NavIconProps = {
 };
 
 export interface NavbarProps {
+  children?: React.ReactNode;
   items?: NavLinkProps[];
   logo?: string;
   icons?: NavIconProps[];
   searchActive?: boolean;
+  searchValue?: string;
+  handleSearch?: Function; 
+  handleSearchClear?: Function;
   style?: React.CSSProperties;
 }
 
-export const Nav = styled.nav`
+ const Nav = styled.nav`
   background: #0081bf;
   height: 64px;
   display: flex;
@@ -103,12 +107,15 @@ export const NavIcons = styled.div`
 
 
 
-
 const Navbar: React.FC<NavbarProps> = ({
-  items,
-  logo,
-  icons,
-  searchActive,
+  // items,
+  // logo,
+  // icons,
+  // searchActive,
+  // searchValue,
+  // handleSearch,
+  // handleSearchClear,
+  children,
   ...rest
 }) => {
   const [Active, setActive] = useState({
@@ -119,50 +126,8 @@ const Navbar: React.FC<NavbarProps> = ({
   const [visibleSearch, setVisibleSearch] = useState(false);
   return (
     <>
-      <Nav>
-        <Bars>
-          <MenuIcon />
-        </Bars>
-        <NavMenu>
-          {logo && (
-            <NavLogo>
-              <img src={logo} alt="logo" style={{ height: "20px" }} />
-            </NavLogo>
-          )}
-          {items && (items.map((navbarItem: NavLinkProps) => (
-            <NavLink
-              key={navbarItem.name}
-              {...navbarItem}
-              active={navbarItem.name === Active.activeItem}
-              onClick={() => setActive({ ...Active, activeItem: navbarItem.name })}
-            />
-          )))}
-        </NavMenu>
-        <NavIcons>
-        {visibleSearch && (
-          <Search
-            value={search}
-            placeholder="Search here"
-            clearValue
-            handleChange={(e) => setSearch(e.target.value)}
-            handleClear={() => setSearch("")}
-          />
-        )}
-        {searchActive && (
-          <NavIcon onClick={() => setVisibleSearch(!visibleSearch)}>
-            <SearchIcon />
-          </NavIcon>
-        )}
-        <NavMenu>
-          {icons && (icons.map((navbarIcon: NavIconProps) => (
-            <NavIcon
-              href={navbarIcon.href}
-            >
-              {navbarIcon.icon}
-            </NavIcon>
-          )))}
-        </NavMenu>
-        </NavIcons>
+      <Nav {...rest}>
+        {children}
       </Nav>
     </>
   );
@@ -173,3 +138,48 @@ Navbar.defaultProps = {
 };
 
 export default Navbar;
+
+
+// <Bars>
+// <MenuIcon />
+// </Bars>
+// <NavMenu>
+// {logo && (
+//   <NavLogo>
+//     <img src={logo} alt="logo" style={{ height: "20px" }} />
+//   </NavLogo>
+// )}
+// {items && (items.map((navbarItem: NavLinkProps) => (
+//   <NavLink
+//     key={navbarItem.name}
+//     {...navbarItem}
+//     active={navbarItem.name === Active.activeItem}
+//     onClick={() => setActive({ ...Active, activeItem: navbarItem.name })}
+//   />
+// )))}
+// </NavMenu>
+// <NavIcons>
+// {visibleSearch && (
+// <Search
+//   value={searchValue}
+//   placeholder="Search here"
+//   clearValue
+//   handleChange={handleSearch}
+//   handleClear={handleSearchClear}
+// />
+// )}
+// {searchActive && (
+// <NavIcon onClick={() => setVisibleSearch(!visibleSearch)}>
+//   <SearchIcon />
+// </NavIcon>
+// )}
+// <NavMenu>
+// {icons && (icons.map((navbarIcon: NavIconProps) => (
+//   <NavIcon
+//     href={navbarIcon.href}
+//   >
+//     {navbarIcon.icon}
+//   </NavIcon>
+// )))}
+// </NavMenu>
+// </NavIcons>

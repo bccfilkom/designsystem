@@ -5,7 +5,7 @@ import {
 
 export type NavLinkProps = {
     name: string;
-    href: string;
+    href?: string;
     active?: boolean;
     onClick?();
     subitems?: [];
