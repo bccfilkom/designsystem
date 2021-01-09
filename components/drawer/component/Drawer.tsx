@@ -20,6 +20,7 @@ export interface DrawerItemProps {
   icon?: any;
   isOp?: boolean;
   isOpened?: boolean;
+  iconDesc?: boolean;
 }
 
 const DrawerContainer = styled("div")`

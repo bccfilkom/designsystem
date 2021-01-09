@@ -28,7 +28,7 @@ export const Default = () => {
       <Stack spacing="xl">
         <Button onClick={()=>setIsShow(!isShow)}>dq</Button>
         <Drawer isOpened={isShow}>
-          <Drawer.Head></Drawer.Head>
+          <Drawer.Head isOp={isShow}></Drawer.Head>
           <Drawer.Body>
             <Drawer.Menu name="Menu 1">
               <Drawer.Item iconDesc={isShow} icon={<User /> } name="Account"></Drawer.Item>
