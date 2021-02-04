@@ -30,14 +30,14 @@ export const Default = () => {
         <Drawer isOpened={isShow}>
           <Drawer.Head isOp={isShow}></Drawer.Head>
           <Drawer.Body>
-            <Drawer.Menu name="Menu 1">
+            <Drawer.Menu name="Menu 1" isOp={isShow}>
               <Drawer.Item iconDesc={isShow} icon={<User /> } name="Account"></Drawer.Item>
               <Drawer.Item iconDesc={isShow} icon={<NotificationsIcon />} name="Notification"></Drawer.Item>
               <Drawer.Item iconDesc={isShow} icon={<MessageIcon />} name="Message">
 
               </Drawer.Item>
             </Drawer.Menu>
-            <Drawer.Menu name="Menu 2">
+            <Drawer.Menu name="Menu 2" isOp={isShow}>
               <Drawer.Item iconDesc={isShow} icon={<Settings />} name="Settings">
                 <Drawer.SubItem>Security and account</Drawer.SubItem>
                 <Drawer.SubItem>Privacy</Drawer.SubItem>

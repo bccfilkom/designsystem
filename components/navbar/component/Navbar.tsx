@@ -56,9 +56,11 @@ export const NavItem = styled.a`
   justify-content: space-between;
   text-decoration: none;
   cursor: pointer;
-  padding: 22px 8px;
-  margin-right: 8px;
+  padding: 0 8px;
   font-size:14px;
+  &:not(:last-child){
+    margin-right: 8px;
+  }
   :hover {
     background-color: #5db7e6;
     color: #fff;
