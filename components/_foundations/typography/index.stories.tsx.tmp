@@ -6,7 +6,7 @@ import {
   SystemWrapper,
   SystemBlock,
 } from "../../_utils/storybook";
-import { Box } from "../../_foundations";
+import { Box } from "..";
 import { Stack } from "../common";
 
 const readme = require("./README.md");
