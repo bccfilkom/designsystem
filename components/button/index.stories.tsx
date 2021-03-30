@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
 import { withKnobs } from "@storybook/addon-knobs";
-import AndroidOutlinedIcon from "@material-ui/icons/AndroidOutlined";
 import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import Button from "./component/Button";
 
@@ -15,6 +14,16 @@ export const Primary = () => {
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
         <Button>BUTTON</Button>
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Skeleton = () => {
+  return (
+    <SystemBlock title="BCC Design System - Button">
+      <Stack spacing="xl">
+        <Button className="skeleton">BUTTON</Button>
       </Stack>
     </SystemBlock>
   );

@@ -6,6 +6,7 @@ export interface ButtonProps {
   type?: "secondary" | "text";
   icon?: ReactNode;
   condensed?: boolean;
+  className?: string;
   children?: string;
 }
 
@@ -22,6 +23,9 @@ const ButtonElement = styled.button((props: ButtonProps) => {
     background-color: ${type === "secondary" ? colors.putih : colors.biru};
     border-radius: ${radiuss.md}px;
     border: 1.5px solid ${colors.biru};
+    &.skeleton {
+      border: none;
+    }
     ${icon &&
       css`
         .icon {
