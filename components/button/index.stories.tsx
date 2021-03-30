@@ -1,18 +1,16 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
-import { withKnobs} from "@storybook/addon-knobs";
-import {
-  SystemWrapper,
-  SystemBlock,
-} from "../_utils/storybook";
-import Button from './component/Button'
+import { withKnobs } from "@storybook/addon-knobs";
+import AndroidOutlinedIcon from "@material-ui/icons/AndroidOutlined";
+import { SystemWrapper, SystemBlock } from "../_utils/storybook";
+import Button from "./component/Button";
 
 export default {
   title: "Component|Button",
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const ButtonPrimary = () => {
+export const Primary = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
@@ -22,21 +20,31 @@ export const ButtonPrimary = () => {
   );
 };
 
-export const ButtonSecondary = () => {
+export const Text = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
-        <Button secondary>BUTTON SECONDARY</Button>
+        <Button type="text">BUTTON TEXT</Button>
       </Stack>
     </SystemBlock>
   );
 };
 
-export const ButtonCondensed = () => {
+export const Secondary = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
-        <Button secondary condensed>BUTTON CONDENSED</Button>
+        <Button type="secondary">BUTTON SECONDARY</Button>
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Condensed = () => {
+  return (
+    <SystemBlock title="BCC Design System - Button">
+      <Stack spacing="xl">
+        <Button condensed>BUTTON CONDENSED</Button>
       </Stack>
     </SystemBlock>
   );

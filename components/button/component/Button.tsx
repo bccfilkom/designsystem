@@ -1,43 +1,60 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { colors, radiuss, space } from "../../_utils/variables";
+import { colors, radiuss } from "../../_utils/variables";
 
 export interface ButtonProps {
-  secondary?: boolean;
-  children?: string;
+  type?: "secondary" | "text";
+  icon?: ReactNode;
   condensed?: boolean;
+  children?: string;
 }
 
-const ButtonElement = styled.button(
-  (props: ButtonProps) => css`
-    min-width: ${props.condensed ? 96 : 112} px;
-    padding: 12px 24px;
-    ${props.condensed &&
-      css`
-        padding: 6px 16px;
-      `}
-    color: ${props.secondary ? colors.biru : colors.putih};
+const ButtonElement = styled.button((props: ButtonProps) => {
+  const { type, condensed, icon } = props;
+  return css`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    min-width: ${condensed ? 96 : 112}px;
+    padding: ${condensed ? "6px 16px" : "12px 24px"};
+    color: ${type === "secondary" ? colors.biru : colors.putih};
     font-weight: 600;
-    background-color: ${props.secondary ? colors.putih : colors.biru};
+    background-color: ${type === "secondary" ? colors.putih : colors.biru};
     border-radius: ${radiuss.md}px;
     border: 1.5px solid ${colors.biru};
-    &:focus{
+    ${icon &&
+      css`
+        .icon {
+          width: 12px;
+          object-fit: contain;
+          font-size: 12px;
+        }
+      `}
+    ${type === "text" &&
+      css`
+        color: ${colors.biru};
+        border-color: ${colors.white};
+        background-color: ${colors.putih};
+      `}
+
+    &:focus {
       outline: 0;
     }
-  `
-);
+  `;
+});
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { secondary, condensed, children } = props;
+  const { children, icon } = props;
   return (
-    <ButtonElement secondary={secondary} condensed={condensed}>
+    <ButtonElement {...props}>
+      {icon && <span className="icon">{icon}</span>}
       {children}
     </ButtonElement>
   );
 };
 
 Button.defaultProps = {
-  secondary: false,
+  type: null,
   condensed: false,
 };
 
