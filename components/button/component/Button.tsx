@@ -29,7 +29,6 @@ const ButtonElement = styled.button(
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { secondary, condensed, children } = props;
-  console.log(condensed);
   return (
     <ButtonElement secondary={secondary} condensed={condensed}>
       {children}
