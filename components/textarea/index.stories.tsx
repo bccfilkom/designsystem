@@ -95,3 +95,20 @@ export const Disabled = () => {
     </SystemBlock>
   );
 };
+
+
+export const Skeleton = () => {
+  const [textArea, setTextArea] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Area Skeleton">
+      <Stack spacing="xl">
+        <TextArea
+          value={textArea}
+          className = "skeleton"
+          hintText="Loading ..."
+          handleChange={(e) => setTextArea(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
