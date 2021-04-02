@@ -105,7 +105,6 @@ const Input: React.FC<InputProps> = ({
   className,
   icon,
   skeleton,
-  ...rest
 }) => {
   return (
     <ContainerInput>
