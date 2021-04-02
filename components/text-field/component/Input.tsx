@@ -13,7 +13,7 @@ export interface InputProps {
   hintText?: string;
   success?: boolean;
   className?: string;
-  icon?: React.ReactElement;
+  icon?: string;
   style?: React.CSSProperties;
   skeleton?: boolean;
 }
@@ -116,11 +116,11 @@ const Input: React.FC<InputProps> = ({
           style={{
             color: "#D8D8D8",
             position: "absolute",
-            left: "16px",
-            top: "12px",
+            left: "18px",
+            top: "18px",
           }}
         >
-          {icon}
+          <img src = {icon}/>
         </span>
         <InputField
           placeholder={placeholder}

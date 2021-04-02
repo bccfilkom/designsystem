@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
 import { withKnobs } from "@storybook/addon-knobs";
-import PersonIcon from '@material-ui/icons/Person';
+import User from "../_foundations/icon/user.svg";
 
 import {
   SystemWrapper,
@@ -160,7 +160,7 @@ export const WithIcon = () => {
           placeholder="Filled Text"
           value={value}
           handleChange={(e) => setValue(e.target.value)}
-          icon = {<PersonIcon/>}
+          icon = {User}
         />
       </Stack>
     </SystemBlock>
