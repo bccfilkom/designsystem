@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-import PropTypes from "prop-types";
-import { colors } from "../../_utils";
-
+// @ts-ignore
+import Success from "../../_foundations/icon/success.svg";
 export interface InputProps {
   disabled?: boolean;
   checked?: boolean;
@@ -13,12 +11,17 @@ export interface InputProps {
   action?: string;
   handleChange?: Function;
   hintText?: string;
+  success?: boolean;
+  className?: string;
+  icon?: string;
   style?: React.CSSProperties;
+  skeleton?: boolean;
 }
 
 const ContainerInput = styled("div")`
   display: inline-flex;
   flex-direction: column;
+  position: relative;
 `;
 
 const InputField = styled("input")`
@@ -90,7 +93,6 @@ const HintText = styled("span")`
 `;
 
 const Input: React.FC<InputProps> = ({
-  checked,
   disabled,
   placeholder,
   hintText,
@@ -98,20 +100,50 @@ const Input: React.FC<InputProps> = ({
   handleChange,
   action,
   type,
-  ...rest
+  icon,
+  skeleton,
 }) => {
   return (
     <ContainerInput>
-      <InputField
-        placeholder={placeholder}
-        disabled={disabled}
-        action={action}
-        value={value}
-        onChange={handleChange}
-        type={type}
-      />
+      <div>
+        {action === "success" && value.length > 0 ? (
+          <img
+            src={Success}
+            style={{ position: "absolute", right: "16px", top: "18px" }}
+          />
+        ) : null}
+        <span
+          style={{
+            color: "#D8D8D8",
+            position: "absolute",
+            left: "18px",
+            top: "18px",
+          }}
+        >
+          <img src = {icon}/>
+        </span>
+        <InputField
+          placeholder={placeholder}
+          disabled={disabled}
+          action={value.length > 0 ? action : "normal"}
+          value={value}
+          onChange={handleChange}
+          type={type}
+          className={skeleton && "skeleton"}
+          style={{
+            paddingLeft: icon ? "48px" : "16px",
+            paddingRight: action === "success" ? "48px" : "16px",
+          }}
+        ></InputField>
+      </div>
       {hintText.length > 0 ? (
-        <HintText action={action}>{hintText}</HintText>
+        <HintText
+          className={skeleton && "skeleton"}
+          style={skeleton && { width: "30%" }}
+          action={value.length > 0 ? action : "normal"}
+        >
+          {hintText}
+        </HintText>
       ) : null}
     </ContainerInput>
   );

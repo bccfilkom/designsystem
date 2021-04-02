@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Stack } from "../_foundations/common";
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import {
   SystemWrapper,
   SystemBlock,
-  ComponentBlock,
 } from "../_utils/storybook";
 import TextArea from "./component/TextArea";
 
+
 export default {
   title: "Component|Text Area",
-  // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
@@ -90,6 +89,23 @@ export const Disabled = () => {
           value={textArea}
           handleChange={(e) => setTextArea(e.target.value)}
           disabled
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+
+export const Skeleton = () => {
+  const [textArea, setTextArea] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Area Skeleton">
+      <Stack spacing="xl">
+        <TextArea
+          value={textArea}
+          className = "skeleton"
+          hintText="Loading ..."
+          handleChange={(e) => setTextArea(e.target.value)}
         />
       </Stack>
     </SystemBlock>

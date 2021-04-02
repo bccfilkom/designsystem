@@ -1,18 +1,18 @@
 import * as React from "react";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-import PropTypes from "prop-types";
-import { colors } from "../../_utils";
-import Warning from "@material-ui/icons/Warning";
+// @ts-ignore
+import Warning from "../../_foundations/icon/warning.svg";
 
 export interface TextAreaProps {
   disabled?: boolean;
   placeholder?: string;
   value?: string;
-  isWarning?: false;
+  isWarning?: boolean;
   hintText?: string;
   handleChange?: Function;
+  className?: string;
   style?: React.CSSProperties;
+  skeleton?: boolean;
 }
 
 const InputContainer = styled("div")`
@@ -31,9 +31,21 @@ background-color: white;
 outline: none;
 min-width: 440px;
 height: 120px;
+animation: none!important;
 
 &::placeholder {
   color: rgba(20, 48, 69, 0.5);
+}
+
+&::-webkit-scrollbar {
+  width: 14px;
+}
+
+&::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 &:active,
@@ -67,15 +79,18 @@ const TextArea: React.FC<TextAreaProps> = ({
   isWarning,
   handleChange,
   value,
+  className,
+  skeleton,
   ...rest
 }) => {
   return (
     <>
       <InputContainer>
         {isWarning && value.length > 0 ? (
-          <Warning
+          <img
+            src={Warning}
+            alt="warning-icon"
             style={{
-              color: "#FB9E2E",
               position: "absolute",
               right: "8px",
               top: "8px",
@@ -88,10 +103,15 @@ const TextArea: React.FC<TextAreaProps> = ({
           value={value}
           onChange={handleChange}
           disabled={disabled}
-          isWarning={isWarning}
+          isWarning={value.length > 0 && isWarning}
+          className={className}
         />
       </InputContainer>
-      {hintText.length > 0 ? <HintText>{hintText}</HintText> : null}
+      {hintText.length > 0 ? (
+        <HintText isWarning={value.length > 0 && isWarning}>
+          {hintText}
+        </HintText>
+      ) : null}
     </>
   );
 };
