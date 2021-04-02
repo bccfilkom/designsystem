@@ -13,7 +13,7 @@ export interface InputProps {
   hintText?: string;
   success?: boolean;
   className?: string;
-  icon?: React.ReactElement;  
+  icon?: React.ReactElement;
   style?: React.CSSProperties;
   skeleton?: boolean;
 }
@@ -26,7 +26,7 @@ const ContainerInput = styled("div")`
 
 const InputField = styled("input")`
   display: inline-block;
-  padding: 16px 32px 16px 16px;
+  padding: 16px;
   border: 1.5px solid #d8d8d8;
   box-sizing: border-box;
   font-size: 14px;
@@ -93,7 +93,6 @@ const HintText = styled("span")`
 `;
 
 const Input: React.FC<InputProps> = ({
-  checked,
   disabled,
   placeholder,
   hintText,
@@ -101,8 +100,6 @@ const Input: React.FC<InputProps> = ({
   handleChange,
   action,
   type,
-  success,
-  className,
   icon,
   skeleton,
 }) => {
@@ -133,10 +130,10 @@ const Input: React.FC<InputProps> = ({
           onChange={handleChange}
           type={type}
           className={skeleton && "skeleton"}
-          style={
-            (icon && { paddingLeft: "48px" }) ||
-            (success && { paddingRight: "48px" })
-          }
+          style={{
+            paddingLeft: icon ? "48px" : "16px",
+            paddingRight: action === "success" ? "48px" : "16px",
+          }}
         ></InputField>
       </div>
       {hintText.length > 0 ? (
