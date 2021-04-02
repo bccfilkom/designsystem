@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import { colors, radiuss } from "../../_utils/variables";
 
 export interface ButtonProps {
   type?: "secondary" | "text";
-  icon?: ReactNode;
+  icon?: string;
   condensed?: boolean;
   className?: string;
   children?: string;
@@ -20,6 +20,7 @@ const ButtonElement = styled.button((props: ButtonProps) => {
     padding: ${condensed ? "6px 16px" : "12px 24px"};
     color: ${type === "secondary" ? colors.biru : colors.putih};
     font-weight: 600;
+    font-size: 14px;
     background-color: ${type === "secondary" ? colors.putih : colors.biru};
     border-radius: ${radiuss.md}px;
     border: 1.5px solid ${colors.biru};
@@ -28,10 +29,11 @@ const ButtonElement = styled.button((props: ButtonProps) => {
     }
     ${icon &&
       css`
+        padding-left: 16px;
         .icon {
           width: 12px;
-          object-fit: contain;
-          font-size: 12px;
+          color: ${colors.biru};
+          margin-right: 8px;
         }
       `}
     ${type === "text" &&
@@ -51,7 +53,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { children, icon } = props;
   return (
     <ButtonElement {...props}>
-      {icon && <span className="icon">{icon}</span>}
+      {icon && <img src={icon} className="icon" />}
       {children}
     </ButtonElement>
   );
@@ -60,6 +62,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 Button.defaultProps = {
   type: null,
   condensed: false,
+  icon: null,
 };
 
 export default Button;

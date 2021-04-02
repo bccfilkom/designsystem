@@ -4,6 +4,9 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import Button from "./component/Button";
 
+const androidWhiteIcon = require('./assets/icons/android_white.svg') as string
+const androidBlueIcon = require('./assets/icons/android_blue.svg') as string
+
 export default {
   title: "Component|Button",
   decorators: [SystemWrapper, withKnobs],
@@ -14,6 +17,8 @@ export const Primary = () => {
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
         <Button>BUTTON</Button>
+        <br/>
+        <Button icon={androidWhiteIcon}>WITH ICON</Button>
       </Stack>
     </SystemBlock>
   );
@@ -34,6 +39,8 @@ export const Text = () => {
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
         <Button type="text">BUTTON TEXT</Button>
+        <br/>
+        <Button type="text" icon={androidBlueIcon}>WITH ICON</Button>
       </Stack>
     </SystemBlock>
   );
@@ -44,6 +51,8 @@ export const Secondary = () => {
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
         <Button type="secondary">BUTTON SECONDARY</Button>
+        <br/>
+        <Button type="secondary" icon={androidBlueIcon}>WITH ICON</Button>
       </Stack>
     </SystemBlock>
   );
@@ -54,6 +63,8 @@ export const Condensed = () => {
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
         <Button condensed>BUTTON CONDENSED</Button>
+        <br/>
+        <Button condensed icon={androidWhiteIcon}>WITH ICON</Button>
       </Stack>
     </SystemBlock>
   );
