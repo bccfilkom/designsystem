@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
+import PersonIcon from '@material-ui/icons/Person';
+
 import {
   SystemWrapper,
   SystemBlock,
@@ -11,7 +13,6 @@ import { useState } from "react";
 
 export default {
   title: "Component|Input",
-  // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
@@ -56,6 +57,7 @@ export const HintText = () => {
     </SystemBlock>
   );
 };
+
 export const TypeNumber = () => {
   const [value, setValue] = useState("");
   return (
@@ -109,7 +111,58 @@ export const Error = () => {
 export const Disabled = () => (
   <SystemBlock title="BCC Design System - Input">
     <Stack spacing="xl">
-      <Input disabled />
+      <Input disabled  value=""/>
     </Stack>
   </SystemBlock>
 );
+
+export const Success = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Success Text"
+          placeholder="Filled Text"
+          value={value}
+          action = 'success'
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Skeleton = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Loading ..."
+          placeholder="Filled Text"
+          value={value}
+          skeleton
+          handleChange={(e) => setValue(e.target.value)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const WithIcon = () => {
+  const [value, setValue] = useState("");
+  return (
+    <SystemBlock title="BCC Design System - Text Field">
+      <Stack spacing="xl">
+        <Input
+          hintText="Hint Text"
+          placeholder="Filled Text"
+          value={value}
+          handleChange={(e) => setValue(e.target.value)}
+          icon = {<PersonIcon/>}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
