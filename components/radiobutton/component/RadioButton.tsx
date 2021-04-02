@@ -87,23 +87,8 @@ const Circle = styled("span")`
     transition: opacity 0.2s ease-in-out;
     border: 3.5px solid
       ${(props) =>
-        props.shadow ? (props.checked ? "#E4F4FF" : "#F1F1F1") : "#fff"};
+        props.shadow ? (props.checked ? "#E4F4FF" : "#F1F1F1") : colors.white};
   }
-`;
-
-const Shadow = styled("div")`
-  display: inline-block;
-  vertical-align: middle;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  z-index: -1;
-  left: -2px;
-  top: -2px;
-  box-sizing: content-box;
-  background-color: red;
 `;
 
 const Label = styled("label")`
