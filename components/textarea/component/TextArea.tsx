@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-// @ts-ignore
+
 import Warning from "../../_foundations/icon/warning.svg";
+import User from "../../_foundations/icon/user.svg";
 
 export interface TextAreaProps {
   disabled?: boolean;
@@ -23,6 +24,7 @@ const InputContainer = styled("div")`
 const FieldInput = styled("textarea")`
 display: inline-block;
 padding: 16px;
+padding-right : ${(props) => props.isWarning && "28px"};
 border: 1.5px solid #d8d8d8;
 box-sizing: border-box;
 font-size: 14px;
@@ -90,6 +92,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           <img
             src={Warning}
             alt="warning-icon"
+
             style={{
               position: "absolute",
               right: "8px",
