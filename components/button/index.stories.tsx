@@ -4,8 +4,8 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import Button from "./component/Button";
 
-const androidWhiteIcon = require('./assets/icons/android_white.svg') as string
-const androidBlueIcon = require('./assets/icons/android_blue.svg') as string
+const androidWhiteIcon = require('../_foundations/icon/android_white.svg') as string
+const androidBlueIcon = require('../_foundations/icon/android_blue.svg') as string
 
 export default {
   title: "Component|Button",
