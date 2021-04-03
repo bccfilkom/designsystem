@@ -1,7 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import Warning from "../../_foundations/icon/warning.svg";
 import User from "../../_foundations/icon/user.svg";
+
 export interface TextAreaProps {
   disabled?: boolean;
   placeholder?: string;
@@ -89,6 +91,8 @@ const TextArea: React.FC<TextAreaProps> = ({
         {isWarning && value.length > 0 ? (
           <img
             src={Warning}
+            alt="warning-icon"
+
             style={{
               position: "absolute",
               right: "8px",

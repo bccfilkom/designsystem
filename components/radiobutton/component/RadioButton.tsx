@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { themeGet } from "@styled-system/theme-get";
 import { colors } from "../../_utils";
-
 export interface RadioButtonProps {
   value?: String;
   disabled?: boolean;
@@ -22,17 +20,12 @@ const RadioContainer = styled("div")`
 
 const Radio = styled("input")`
   display: none;
-
   &:checked + label > span {
-    border-color: ${themeGet("colors.biru", colors.biru03)};
+    border-color: ${colors.biru};
     &::before {
       opacity: 1;
     }
   }
-  &:hover + label > div {
-    border: 3px solid red;
-  }
-
   &:disabled {
     &:checked + label > span {
       border: 1.5px solid #d8d8d8;
@@ -45,7 +38,6 @@ const Radio = styled("input")`
   &:disabled + label span {
     cursor: not-allowed;
   }
-
   &:disabled + label > span {
     border: 1.5px solid #d8d8d8;
   }
@@ -53,7 +45,6 @@ const Radio = styled("input")`
 
 const Circle = styled("span")`
   position: relative;
-  z-index: 2;
   box-sizing: content-box;
   display: inline-block;
   vertical-align: middle;
@@ -62,9 +53,7 @@ const Circle = styled("span")`
   height: 20px;
   cursor: pointer;
   border-radius: 50%;
-  position: relative;
   border: 1.5px solid #888;
-
   &::before {
     content: "";
     opacity: 0;
@@ -80,21 +69,26 @@ const Circle = styled("span")`
     transform: translate(-50%, -50%);
     transition: opacity 0.2s ease-in-out;
   }
-`;
-
-const Shadow = styled("div")`
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  border: 3px solid tranparent;
-  box-sizing: content-box;
+  &::after {
+    content: "";
+    width: 29.7px;
+    height: 29.7px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50.4%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    background-color: transparent;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    border: 3.5px solid
+      ${(props) =>
+        props.shadow ? (props.checked ? "#E4F4FF" : "#F1F1F1") : colors.white};
+  }
 `;
 
 const Label = styled("label")`
@@ -113,9 +107,13 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   id,
   value,
 }) => {
+  const [shadow, setShadow] = React.useState(false);
   return (
     <>
-      <RadioContainer>
+      <RadioContainer
+        onMouseEnter={() => setShadow(true)}
+        onMouseLeave={() => setShadow(false)}
+      >
         <Radio
           type="radio"
           id={id}
@@ -125,7 +123,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
           onChange={handleChange}
         />
         <Label htmlFor={id}>
-          <Circle />
+          <Circle shadow={!disabled && shadow} checked={checked}></Circle>
           {children}
         </Label>
       </RadioContainer>
