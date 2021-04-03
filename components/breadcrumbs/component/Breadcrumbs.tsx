@@ -32,8 +32,6 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       ...rest,
     });
   });
-
-  console.log(crumbs);
   return (
     <Nav>
       <Ol {...rest}> {crumbs} </Ol>
