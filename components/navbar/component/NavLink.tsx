@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     NavItem
 } from "./Navbar";
@@ -12,8 +12,15 @@ export type NavLinkProps = {
 };
 
 function NavLink(props: NavLinkProps): JSX.Element {
+    const ref = useRef<HTMLAnchorElement>(null);
+    const [width, setWidth] = useState<number>();
+
+    useEffect(() => {
+        setWidth(ref.current.offsetWidth);
+    }, [])
+
     return (
-        <NavItem href={props.href} onClick={() => props.onClick()} style={{ fontWeight: (props.active ? "bold" : "normal") }} >{props.name}</NavItem>
+        <NavItem ref={ref} href={props.href} onClick={() => props.onClick()} style={{width, fontWeight: props.active ? 'bold': 'normal'}} >{props.name}</NavItem>
     );
 }
 
