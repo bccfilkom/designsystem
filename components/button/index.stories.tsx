@@ -16,7 +16,7 @@ export const Primary = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
-        <Button>BUTTON</Button>
+        <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
         <br/>
         <Button icon={androidWhiteIcon}>WITH ICON</Button>
       </Stack>

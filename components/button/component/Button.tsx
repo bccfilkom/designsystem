@@ -6,6 +6,7 @@ export interface ButtonProps {
   type?: "secondary" | "text";
   icon?: string;
   condensed?: boolean;
+  onClick?: Function;
   className?: string;
   children?: string;
 }
