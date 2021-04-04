@@ -51,7 +51,7 @@ const ButtonElement = styled.button((props: ButtonProps) => {
 });
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { children, icon} = props;
+  const { children, icon } = props;
   return (
     <ButtonElement {...props}>
       {icon && <img src={icon} className="icon" />}
