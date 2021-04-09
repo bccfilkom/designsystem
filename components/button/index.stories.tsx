@@ -28,7 +28,9 @@ export const Skeleton = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
-        <Button className="skeleton">BUTTON</Button>
+        <Button skeleton>BUTTON</Button>
+        <br/>
+        <Button skeleton>BUTTON WITH A LONG TEXT</Button>
       </Stack>
     </SystemBlock>
   );
