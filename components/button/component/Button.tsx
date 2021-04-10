@@ -6,13 +6,14 @@ export interface ButtonProps {
   type?: "secondary" | "text";
   icon?: string;
   condensed?: boolean;
+  skeleton?: boolean;
   onClick?: Function;
   className?: string;
   children?: string;
 }
 
 const ButtonElement = styled.button((props: ButtonProps) => {
-  const { type, condensed, icon } = props;
+  const { type, condensed, icon, skeleton } = props;
   return css`
     cursor: pointer;
     display: flex;
@@ -25,9 +26,29 @@ const ButtonElement = styled.button((props: ButtonProps) => {
     background-color: ${type === "secondary" ? colors.putih : colors.biru};
     border-radius: ${radiuss.md}px;
     border: 1.5px solid ${colors.biru};
-    &.skeleton {
-      border: none;
-    }
+    ${skeleton &&
+      css`
+        border: none;
+        cursor: inherit;
+        color: transparent;
+        background-color: #e2e5e7;
+        background-image: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0)
+        );
+        background-size: 40px 100%;
+        background-repeat: no-repeat;
+        background-position: left -40px top 0;
+        animation: shine 1s ease infinite;
+
+        @keyframes shine {
+          to {
+            background-position: right -40px top 0;
+          }
+        }
+      `}
     ${icon &&
       css`
         padding-left: 16px;
@@ -50,7 +71,7 @@ const ButtonElement = styled.button((props: ButtonProps) => {
   `;
 });
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button = (props: ButtonProps) => {
   const { children, icon } = props;
   return (
     <ButtonElement {...props}>
@@ -64,6 +85,7 @@ Button.defaultProps = {
   type: null,
   condensed: false,
   icon: null,
+  skeleton: false,
 };
 
 export default Button;
