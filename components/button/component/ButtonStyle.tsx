@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { colors } from "../../_utils/variables";
+import { colors, radiuss } from "../../_utils/variables";
 
 export default {
   skeleton: css`
@@ -17,7 +17,6 @@ export default {
     background-repeat: no-repeat;
     background-position: left -40px top 0;
     animation: shine 1s ease infinite;
-
     @keyframes shine {
       to {
         background-position: right -40px top 0;
@@ -33,8 +32,32 @@ export default {
     }
   `,
   baseButtonStyle: css`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${colors.putih};
+    font-weight: 600;
+    font-size: 14px;
+    background-position: center;
+    background-color: ${colors.biru};
+    border-radius: ${radiuss.md}px;
+    border: 1.5px solid ${colors.biru};
+    &:focus {
+      outline: 0;
+    }
+    transition: background 0.8s;
+  `,
+  primary: css`
     &:hover {
-      background: #53a7e0;
+      background: #3598DB
+        radial-gradient(circle, transparent 1%, #3598DB 1%)
+        center/15000%;
+    }
+    &:active {
+      background-color: #53A7E0;
+      background-size: 100%;
+      transition: background 0s;
     }
   `,
   text: css`
@@ -42,7 +65,14 @@ export default {
     border-color: ${colors.white};
     background-color: ${colors.putih};
     &:hover {
-      background: #e4f4ff;
+      background: ${colors.putih}
+        radial-gradient(circle, transparent 1%, ${colors.putih} 1%)
+        center/15000%;
+    }
+    &:active {
+      background-color: #e4f4ff;
+      background-size: 100%;
+      transition: background 0s;
     }
   `,
   textDisabled: css`
@@ -52,8 +82,14 @@ export default {
     color: ${colors.biru};
     background: ${colors.putih};
     &:hover {
-      color: ${colors.biru};
-      background: #e4f4ff;
+      background: ${colors.putih}
+        radial-gradient(circle, transparent 1%, ${colors.putih} 1%)
+        center/15000%;
+    }
+    &:active {
+      background-color: #e4f4ff;
+      background-size: 100%;
+      transition: background 0s;
     }
   `,
   secondaryDisabled: css`
@@ -61,17 +97,29 @@ export default {
     border-color: #888888;
   `,
   success: css`
-    background: #2DCC70;
-    border-color: #2DCC70;
-    &:hover{
-      background: #4CD485;
+    background: #2dcc70;
+    border-color: #2dcc70;
+    &:hover {
+      background: #2dcc70 radial-gradient(circle, transparent 1%, #2dcc70 1%)
+        center/15000%;
+    }
+    &:active {
+      background-color: #4cd485;
+      background-size: 100%;
+      transition: background 0s;
     }
   `,
   error: css`
     background: #e84c3d;
     border-color: #e84c3d;
-    &:hover{
-      background: #EB675A;
+    &:hover {
+      background: #e84c3d radial-gradient(circle, transparent 1%, #e84c3d 1%)
+        center/15000%;
+    }
+    &:active {
+      background-color: #eb675a;
+      background-size: 100%;
+      transition: background 0s;
     }
   `,
 };

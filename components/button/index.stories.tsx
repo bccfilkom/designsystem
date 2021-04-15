@@ -24,6 +24,24 @@ export const Primary = () => {
   );
 };
 
+export const Secondary = () => {
+  return (
+    <SystemBlock title="BCC Design System - Button">
+      <Stack spacing="xl">
+        <Button type="secondary">BUTTON SECONDARY</Button>
+        <br />
+        <Button type="secondary" icon={androidBlueIcon}>
+          WITH ICON
+        </Button>
+        <br />
+        <Button type="secondary" disabled>
+          DISABLED
+        </Button>
+      </Stack>
+    </SystemBlock>
+  );
+};
+
 export const Skeleton = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
@@ -47,24 +65,6 @@ export const Text = () => {
         </Button>
         <br />
         <Button type="text" disabled>
-          DISABLED
-        </Button>
-      </Stack>
-    </SystemBlock>
-  );
-};
-
-export const Secondary = () => {
-  return (
-    <SystemBlock title="BCC Design System - Button">
-      <Stack spacing="xl">
-        <Button type="secondary">BUTTON SECONDARY</Button>
-        <br />
-        <Button type="secondary" icon={androidBlueIcon}>
-          WITH ICON
-        </Button>
-        <br />
-        <Button type="secondary" disabled>
           DISABLED
         </Button>
       </Stack>
