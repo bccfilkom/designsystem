@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
 import { withKnobs } from "@storybook/addon-knobs";
+// @ts-ignore
 import User from "../_foundations/icon/user.svg";
 
 import {
