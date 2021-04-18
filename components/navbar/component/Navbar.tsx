@@ -53,7 +53,7 @@ export const NavItem = styled.a`
   display: flex;
   align-items: center;
   height: 100%;
-  justify-content: space-between;
+  justify-content: center;
   text-decoration: none;
   cursor: pointer;
   padding: 0 8px;
