@@ -19,9 +19,65 @@ export const Reguler = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Reguler">
       <Stack spacing="xl">
-        <Appbar title='Title' icons={[LikeIcon, LikeIcon]}/>
+        <Appbar title="Title" icons={[LikeIcon, MenuDotIcon]} />
+        <br />
+        <Appbar title="Title" icons={[MenuDotIcon]} />
+        <br />
+        <Appbar title="Title" icons={[ShareIcon, MenuDotIcon]} />
+        <br />
+        <Appbar title="Title" icons={[SearchIcon]} />
+        <br />
       </Stack>
     </SystemBlock>
   );
 };
 
+export const WithoutNavigationItem = () => {
+  return (
+    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+      <Stack spacing="xl">
+        <Appbar title="Title" navItem={false} icons={[MenuDotIcon]} />
+        <br />
+        <Appbar
+          title="Title"
+          navItem={false}
+          icons={[SearchIcon, MenuDotIcon]}
+        />
+        <br />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Back = () => {
+  return (
+    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+      <Stack spacing="xl">
+        <Appbar title="Title" back icons={[MenuDotIcon]} />
+        <br />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Close = () => {
+  return (
+    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+      <Stack spacing="xl">
+        <Appbar title="Title" close icons={[TrashIcon, MenuDotIcon]} />
+        <br />
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const WidthGreaterThan360 = () => {
+  return (
+    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+      <Stack spacing="xl">
+        <Appbar title="Title" width={550} icons={[ShareIcon,SearchIcon,MenuDotIcon]} />
+        <br />
+      </Stack>
+    </SystemBlock>
+  );
+};
