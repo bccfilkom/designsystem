@@ -51,7 +51,7 @@ export const WithoutNavigationItem = () => {
 
 export const Back = () => {
   return (
-    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+    <SystemBlock title="BCC Design System - Appbar - Back">
       <Stack spacing="xl">
         <Appbar title="Title" back icons={[MenuDotIcon]} />
         <br />
@@ -62,7 +62,7 @@ export const Back = () => {
 
 export const Close = () => {
   return (
-    <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
+    <SystemBlock title="BCC Design System - Appbar - Close">
       <Stack spacing="xl">
         <Appbar title="Title" close icons={[TrashIcon, MenuDotIcon]} />
         <br />
