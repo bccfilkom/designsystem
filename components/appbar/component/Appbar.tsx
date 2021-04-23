@@ -37,11 +37,11 @@ const IconWrapper = styled("div")`
 `;
 
 const AppbarLeft = styled("div")`
-  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
+  flex: 0 1 33.33%;
 `;
 
 const AppbarCenter = styled("div")`
-  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
+  flex: 0 1 33.33%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ const AppbarRight = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  flex: 1 0 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
+  flex: 1 0 33.33%;
   @media (max-width: 360px) {
     div:nth-child(3) {
       display: none;
