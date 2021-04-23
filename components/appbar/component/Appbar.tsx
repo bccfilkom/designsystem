@@ -17,42 +17,44 @@ export interface AppbarProps {
 }
 
 const AppbarWrapper = styled("div")`
-  max-width: ${props=>props.width}px;
-  background-color: ${colors.biru};
+  max-width: ${(props) => props.width}px;
+  background-color: ${(props) => (props.close ? "#143045" : colors.biru)};
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   color: white;
 `;
 
 const IconWrapper = styled("div")`
   padding: 16px
     ${(props) => (props.index == props.length - 1 ? "16px" : "12px")} 16px
-    ${(props) => (props.leftIcon ? "16px" : (props.index == 0) ? "0px" : "12px")};
+    ${(props) => (props.leftIcon ? "16px" : props.index == 0 ? "0px" : "12px")};
   img {
     height: 24px;
     width: 24px;
   }
+  cursor: pointer;
 `;
 
 const AppbarLeft = styled("div")`
-  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "20%")};
+  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
 `;
 
 const AppbarCenter = styled("div")`
-  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "auto")};
+  flex: 0 1 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+  padding: ${(props) => (props.extended ? "24px 60px 24px" : "0px")};`;
 
 const AppbarRight = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  flex: 1 0 ${(props) => (!props.extended ? "33.33%" : "auto")};
-  @media(max-width : 360px){
-    div:nth-child(3){
-      display : none;
+  flex: 1 0 ${(props) => (!props.extended ? "33.33%" : "33.33%")};
+  @media (max-width: 360px) {
+    div:nth-child(3) {
+      display: none;
     }
   }
 `;
@@ -61,7 +63,7 @@ const Appbar = (props: AppbarProps) => {
   const { icons, navItem, back, close, extended, width, title } = props;
 
   return (
-    <AppbarWrapper width = {width} close = {close}>
+    <AppbarWrapper width={width} close={close}>
       <AppbarLeft extended={extended}>
         <IconWrapper leftIcon={true}>
           {navItem &&
@@ -74,14 +76,15 @@ const Appbar = (props: AppbarProps) => {
             ))}
         </IconWrapper>
       </AppbarLeft>
-      <AppbarCenter extended={extended}>{title}</AppbarCenter>
+      <AppbarCenter extended={extended}>{!extended && title}</AppbarCenter>
       <AppbarRight extended={extended}>
-        {icons.slice(0,3).map((icon, idx) => (
+        {icons.slice(0, 3).map((icon, idx) => (
           <IconWrapper index={idx} key={idx} length={icons.length}>
             <img src={icon} alt="icon" />
           </IconWrapper>
         ))}
       </AppbarRight>
+      {extended && <AppbarCenter extended={extended}>{title}</AppbarCenter>}
     </AppbarWrapper>
   );
 };

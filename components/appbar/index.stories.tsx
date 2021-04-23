@@ -81,3 +81,14 @@ export const WidthGreaterThan360 = () => {
     </SystemBlock>
   );
 };
+
+export const Extended = () => {
+  return (
+    <SystemBlock title="BCC Design System - Appbar - Extended">
+      <Stack spacing="xl">
+        <Appbar title="Title" icons={[ShareIcon,SearchIcon,MenuDotIcon]} extended/>
+        <br />
+      </Stack>
+    </SystemBlock>
+  );
+};
