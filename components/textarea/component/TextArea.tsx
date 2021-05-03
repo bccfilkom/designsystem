@@ -31,8 +31,10 @@ font-size: 14px;
 border-radius: 14px;
 background-color: white;
 outline: none;
-min-width: 440px;
+width: 440px;
 height: 120px;
+min-width: 280px;
+min-height: 70px;
 animation: none!important;
 
 &::placeholder {
