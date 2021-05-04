@@ -7,25 +7,53 @@ import {
   ComponentBlock,
 } from "../_utils/storybook";
 import Checkbox from "./component/Checkbox";
-import { useState } from "react";
 
 export default {
   title: "Component|Checkbox",
-  // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
-export const Example = () => {
-  const [isChecked, setIsChecked] = useState(false);
+export const Default = () => {
   return (
     <SystemBlock title="BCC Design System - Checkbox">
       <Stack spacing="xl">
-        <label>
-          <Checkbox
-            checked={isChecked}
-            handleChange={() => setIsChecked(!isChecked)}
-          />
-        </label>
+        <Checkbox value="BCC"/>
+        <Checkbox value="Design"/>
+        <Checkbox value="System"/>
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+
+export const Selected = () => {
+  return (
+    <SystemBlock title="BCC Design System - Checkbox (Selected)">
+      <Stack spacing="xl">
+        <Checkbox value="Option 1" checked/>  
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+
+export const Indetermined = () => {
+  return (
+    <SystemBlock title="BCC Design System - Checkbox (Indetermined)">
+      <Stack spacing="xl">
+        <Checkbox value="Option 1" indeterminated />  
+      </Stack>
+    </SystemBlock>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <SystemBlock title="BCC Design System - Checkbox (Disabled)">
+      <Stack spacing="xl">
+        <Checkbox value="Option 1" disabled/>  
+        <Checkbox value="Option 2" disabled checked/>  
+        <Checkbox value="Option 3" disabled indeterminated/>  
       </Stack>
     </SystemBlock>
   );
