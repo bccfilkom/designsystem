@@ -20,13 +20,19 @@ export const Default = () => {
     { value: 'PM', name: 'Product Management' },
     { value: 'PD', name: 'Product Design' },
   ]);
+  const [value, setValue] = useState('');
   return (
     <SystemBlock title="BCC Design System - Dropdown">
       <Stack spacing="xl">
         <div style={{ width: '300px' }}>
-          <Dropdown placeholder="Placeholder Text">
+          <Dropdown value={value}>
             {data.map((item) => (
-              <DropdownItem>{item.name}</DropdownItem>
+              <DropdownItem
+                key={item.value}
+                onClick={() => setValue(item.name)}
+              >
+                {item.name}
+              </DropdownItem>
             ))}
           </Dropdown>
         </div>
@@ -45,13 +51,19 @@ export const Scrollable = () => {
     { value: 'DO', name: 'DevOps Engineer' },
     { value: 'ME', name: 'Mobile Engineer' },
   ]);
+  const [value, setValue] = useState('');
   return (
     <SystemBlock title="BCC Design System - Dropdown">
       <Stack spacing="xl">
         <div style={{ width: '300px' }}>
-          <Dropdown type="scrollable" placeholder="Placeholder Text">
+          <Dropdown type="scrollable" value={value}>
             {data.map((item) => (
-              <DropdownItem>{item.name}</DropdownItem>
+              <DropdownItem
+                key={item.value}
+                onClick={() => setValue(item.name)}
+              >
+                {item.name}
+              </DropdownItem>
             ))}
           </Dropdown>
         </div>

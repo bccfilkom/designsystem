@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components/macro';
+import { useOutsideClick } from '../../../shared/hooks';
 import { colors } from '../../_utils/variables';
 import { KeyboardArrowDown } from '@material-ui/icons';
 
 export interface DropdownProps {
-  placeholder: string;
+  value: string;
   type?: string;
   children: React.ReactNode;
 }
@@ -12,6 +13,7 @@ export interface DropdownProps {
 export interface DropdownItemProps {
   setShow?: Function;
   children: React.ReactNode;
+  onClick?: Function;
 }
 
 const DropdownSelect = styled.div`
@@ -81,22 +83,7 @@ const DropdownItemStyle = styled.li`
   }
 `;
 
-const useOutsideClick = (ref, fun) => {
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        fun();
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
-};
-
-const Dropdown = ({ placeholder, children, type }: DropdownProps) => {
+const Dropdown = ({ value, children, type }: DropdownProps) => {
   const [show, setShow] = useState(false);
   const wrapperRef = useRef(null);
   useOutsideClick(wrapperRef, () => setShow(false));
@@ -108,7 +95,7 @@ const Dropdown = ({ placeholder, children, type }: DropdownProps) => {
   return (
     <div ref={wrapperRef}>
       <DropdownSelect onClick={() => setShow(!show)} onOpen={show}>
-        <div>{placeholder}</div>
+        <div>{value || 'Placeholder Text'}</div>
         <div>
           <KeyboardArrowDown style={{ fontSize: '1.5em', color: '#143045' }} />
         </div>
@@ -120,10 +107,11 @@ const Dropdown = ({ placeholder, children, type }: DropdownProps) => {
   );
 };
 
-const DropdownItem = ({ children, setShow }: DropdownItemProps) => {
+const DropdownItem = ({ children, onClick, setShow }: DropdownItemProps) => {
   return (
     <DropdownItemStyle
       onClick={() => {
+        onClick();
         setShow(false);
       }}
     >
