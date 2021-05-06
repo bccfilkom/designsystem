@@ -10,7 +10,6 @@ import Dropdown, { DropdownItem } from './component/Dropdown';
 
 export default {
   title: 'Component|Dropdown',
-  // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
