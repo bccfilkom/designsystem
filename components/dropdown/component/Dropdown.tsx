@@ -85,7 +85,9 @@ const DropdownItemStyle = styled.li`
 
 const Dropdown = ({ value, children, type }: DropdownProps) => {
   const [show, setShow] = useState(false);
-  const wrapperRef = useRef(null);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   useOutsideClick(wrapperRef, () => setShow(false));
   const itemWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {

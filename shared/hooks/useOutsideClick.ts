@@ -1,6 +1,11 @@
-import { useEffect } from 'react';
+import { MutableRefObject, useEffect } from 'react';
 
-export default function useOutsideClick(ref, fun) {
+type Props = {
+  ref: MutableRefObject<HTMLDivElement>;
+  fun: () => void;
+};
+
+export default function useOutsideClick({ ref, fun }: Props) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
