@@ -10,6 +10,7 @@ export interface BreadcrumbItemProps {
   lastItem?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 const Entities = require('html-entities').XmlEntities;
@@ -59,11 +60,11 @@ const Comp = styled("li")`
   }
 `;
 
-const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
+const BreadcrumbItem = ({
   id,
   children,
   ...rest
-}) => {
+}: BreadcrumbItemProps) => {
   return (
     <Comp key={`breadcumb-item-${id}`} {...rest}>
       {typeof children === "string" ? (

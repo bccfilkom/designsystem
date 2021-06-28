@@ -109,7 +109,7 @@ export const NavIcons = styled.div`
 
 
 
-const Navbar: React.FC<NavbarProps> = ({
+const Navbar = ({
   // items,
   // logo,
   // icons,
@@ -119,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({
   // handleSearchClear,
   children,
   ...rest
-}) => {
+}:NavbarProps) => {
   const [Active, setActive] = useState({
     activeItem: null,
     items: [],

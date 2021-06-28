@@ -7,7 +7,7 @@ export interface SystemHeaderProps {
   subtitle?: React.ReactNode;
 }
 
-const SystemHeader: React.FC<SystemHeaderProps> = ({ title, subtitle }) => (
+const SystemHeader= ({ title, subtitle }:SystemHeaderProps) => (
   <Box bg="blue09" px="lg" py="xl" color="black">
     <StoryContainer>
       <Heading

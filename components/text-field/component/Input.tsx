@@ -92,7 +92,7 @@ const HintText = styled("span")`
   line-height: 14px;
 `;
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
   disabled,
   placeholder,
   hintText,
@@ -102,7 +102,7 @@ const Input: React.FC<InputProps> = ({
   type,
   icon,
   skeleton,
-}) => {
+}:InputProps) => {
   return (
     <ContainerInput>
       <div>

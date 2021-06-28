@@ -4,12 +4,13 @@ import StoryContainer from "./StoryContainer";
 
 interface SystemContainerProps {
   noBackground?: boolean;
+  children?: React.ReactNode
 }
 
-const SystemContainer: React.FC<SystemContainerProps> = ({
+const SystemContainer= ({
   children,
   noBackground = false,
-}) => (
+}:SystemContainerProps) => (
   <Box
     flex="1 1 auto"
     px="lg"

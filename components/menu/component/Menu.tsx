@@ -8,6 +8,7 @@ export interface MenuProps {
   opened?: boolean;
   style?: React.CSSProperties;
   Item?: any;
+  children?:React.ReactNode;
 }
 
 export interface MenuItemProps {
@@ -16,6 +17,7 @@ export interface MenuItemProps {
   name?: string;
   hasDivider?: boolean;
   logo?: any;
+  children?:React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -25,6 +27,7 @@ export interface MenuSubItemProps {
   hasDivider?: boolean;
   logo?: any;
   style?: React.CSSProperties;
+  children?:React.ReactNode;
 }
 
 const toggleOpen = keyframes`
@@ -151,10 +154,7 @@ const MenuDivider = styled('hr')`
   border-bottom: 0px solid rgb(0, 0, 0, 0.5);
 `;
 
-const Menu: React.FC<MenuProps> & {
-  Item: typeof MenuItem;
-  SubItem: typeof MenuSubItem;
-} = ({ opened, children, ...rest }) => {
+const Menu = ({ opened, children }:MenuProps) => {
   return (
     <>
       <MenuContainer opened={opened}>
@@ -164,7 +164,7 @@ const Menu: React.FC<MenuProps> & {
   );
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({
+const MenuItem= ({
   disabled,
   name,
   logo,
@@ -172,7 +172,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   children,
   style,
   hasDivider,
-}) => {
+}:MenuItemProps) => {
   return (
     <>
       {hasDivider ? <MenuDivider /> : ''}
@@ -276,13 +276,13 @@ const MenuItem: React.FC<MenuItemProps> = ({
   );
 };
 
-const MenuSubItem: React.FC<MenuSubItemProps> = ({
+const MenuSubItem = ({
   disabled,
   logo,
   onClick,
   children,
   style,
-}) => {
+}:MenuSubItemProps) => {
   return (
     <MenuSubItemList disabled={disabled} onClick={onClick} style={style}>
       {children}

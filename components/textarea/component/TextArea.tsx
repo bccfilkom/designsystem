@@ -76,7 +76,7 @@ const HintText = styled("div")`
   line-height: 14px;
 `;
 
-const TextArea: React.FC<TextAreaProps> = ({
+const TextArea = ({
   disabled,
   placeholder,
   hintText,
@@ -86,7 +86,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   className,
   skeleton,
   ...rest
-}) => {
+}:TextAreaProps) => {
   return (
     <>
       <InputContainer>

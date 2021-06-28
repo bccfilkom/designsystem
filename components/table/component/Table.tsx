@@ -1,13 +1,13 @@
 import * as React from "react";
 import {TableProps, Container, Td, Tr, Th} from "./components"
 
-export const Table: React.FC<TableProps> = ({
+export const Table= ({
   data,
   condensed,
   relaxed,
   horizontalLine,
   stripe,
-}) => {
+}:TableProps) => {
   const keys = [];
   data.header.map(({ key }) => keys.push(key));
   return (

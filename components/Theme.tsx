@@ -13,6 +13,7 @@ import {
   componentStyles,
 } from "./_utils";
 
+
 export const themeProps = {
   // Default styled-system theme props based on the theme specification:
   // https://styled-system.com/theme-specification
@@ -30,7 +31,7 @@ export const themeProps = {
   componentStyles,
 };
 
-export const Theme: React.FC = ({ children }) => {
+export const Theme = ({ children }) => {
   return <ThemeProvider theme={themeProps}>{children}</ThemeProvider>;
 };
 
