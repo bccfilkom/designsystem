@@ -15,7 +15,7 @@ jobs:
       - name: Install typescript
         run : yarn add typescript
       - name: Build app
-        run: yarn build 
+        run: yarn build-storybook 
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
