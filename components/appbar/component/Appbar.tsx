@@ -6,23 +6,27 @@ const NavItemIcon = require("../../_foundations/icon/menu.svg") as string;
 const CloseIcon = require("../../_foundations/icon/close.svg") as string;
 const BackIcon = require("../../_foundations/icon/back.svg") as string;
 
+export type AppbarIcon = {
+  icon?: string;
+  onClick?();
+};
+
 export interface AppbarProps {
-  icons?: string[];
+  icons?: AppbarIcon[];
   navItem?: boolean;
   back?: boolean;
   close?: boolean;
   extended?: boolean;
-  width?: number;
+  width?: number | string;
   title?: string;
 }
 
 const AppbarWrapper = styled("div")`
-  max-width: ${(props) => props.width}px;
-  background-color: ${(props) => (props.close ? "#143045" : colors.biru)};
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  color: white;
+  display: grid;
+  grid-template-columns: repeat(
+    ${(props) => (props.extended ? "2" : "3")},
+    1fr
+  );
 `;
 
 const IconWrapper = styled("div")`
@@ -36,22 +40,30 @@ const IconWrapper = styled("div")`
   cursor: pointer;
 `;
 
-const AppbarLeft = styled("div")`
-  flex: 0 1 33.33%;
+const AppbarLeft = styled("div")``;
+
+const AppbarOuter = styled("div")`
+  max-width: ${(props) =>
+    typeof props.width === "number" ? props.width + "px" : props.width};
+  background-color: ${(props) => (props.close ? "#143045" : colors.biru)};
+  color: white;
 `;
 
 const AppbarCenter = styled("div")`
-  flex: 0 1 33.33%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${(props) => (props.extended ? "24px 60px 24px" : "0px")};`;
+`;
+
+const AppbarExtended = styled("div")`
+  padding: 24px 60px 24px;
+`;
 
 const AppbarRight = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  flex: 1 0 33.33%;
+  flex: 0 0 33.33%;
   @media (max-width: 360px) {
     div:nth-child(3) {
       display: none;
@@ -63,34 +75,36 @@ const Appbar = (props: AppbarProps) => {
   const { icons, navItem, back, close, extended, width, title } = props;
 
   return (
-    <AppbarWrapper width={width} close={close}>
-      <AppbarLeft extended={extended}>
-        <IconWrapper leftIcon={true}>
-          {navItem &&
-            (back ? (
-              <img src={BackIcon} alt="back" />
-            ) : close ? (
-              <img src={CloseIcon} alt="close" />
-            ) : (
-              <img src={NavItemIcon} alt="navitem" />
-            ))}
-        </IconWrapper>
-      </AppbarLeft>
-      <AppbarCenter extended={extended}>{!extended && title}</AppbarCenter>
-      <AppbarRight extended={extended}>
-        {icons.slice(0, 3).map((icon, idx) => (
-          <IconWrapper index={idx} key={idx} length={icons.length}>
-            <img src={icon} alt="icon" />
+    <AppbarOuter width={width} close={close}>
+      <AppbarWrapper extended={extended}>
+        <AppbarLeft extended={extended}>
+          <IconWrapper leftIcon={true}>
+            {navItem &&
+              (back ? (
+                <img src={BackIcon} alt="back" />
+              ) : close ? (
+                <img src={CloseIcon} alt="close" />
+              ) : (
+                <img src={NavItemIcon} alt="navitem" />
+              ))}
           </IconWrapper>
-        ))}
-      </AppbarRight>
-      {extended && <AppbarCenter extended={extended}>{title}</AppbarCenter>}
-    </AppbarWrapper>
+        </AppbarLeft>
+        {!extended && <AppbarCenter extended={extended}>{title}</AppbarCenter>}
+        <AppbarRight extended={extended}>
+          {icons.slice(0, 3).map((icon, idx) => (
+            <IconWrapper index={idx} key={idx} length={icons.length}>
+              <img src={icon.icon} alt="icon" onClick={icon.onClick} />
+            </IconWrapper>
+          ))}
+        </AppbarRight>
+      </AppbarWrapper>
+      {extended && <AppbarExtended>{title}</AppbarExtended>}
+    </AppbarOuter>
   );
 };
 
 Appbar.defaultProps = {
-  width: 360,
+  width: "100%",
   back: false,
   close: false,
   navItem: true,

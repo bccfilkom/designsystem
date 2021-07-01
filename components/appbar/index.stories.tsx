@@ -19,13 +19,70 @@ export const Reguler = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Reguler">
       <Stack spacing="xl">
-        <Appbar title="Title" icons={[LikeIcon, MenuDotIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          icons={[
+            {
+              icon: LikeIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+            {
+              icon: MenuDotIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+          ]}
+        />
         <br />
-        <Appbar title="Title" icons={[MenuDotIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          icons={[
+            {
+              icon: MenuDotIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+          ]}
+        />
         <br />
-        <Appbar title="Title" icons={[ShareIcon, MenuDotIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          icons={[
+            {
+              icon: ShareIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+            ,
+            {
+              icon: MenuDotIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+          ]}
+        />
         <br />
-        <Appbar title="Title" icons={[SearchIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          icons={[
+            {
+              icon: MenuDotIcon,
+              onClick: () => {
+                console.log("clicked");
+              },
+            },
+          ]}
+        />
         <br />
       </Stack>
     </SystemBlock>
@@ -36,12 +93,21 @@ export const WithoutNavigationItem = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
       <Stack spacing="xl">
-        <Appbar title="Title" navItem={false} icons={[MenuDotIcon]} />
-        <br />
         <Appbar
+          width={360}
           title="Title"
           navItem={false}
-          icons={[SearchIcon, MenuDotIcon]}
+          icons={[{ icon: MenuDotIcon, onClick: () => console.log("clicked") }]}
+        />
+        <br />
+        <Appbar
+          width={360}
+          title="Title"
+          navItem={false}
+          icons={[
+            { icon: SearchIcon, onClick: () => console.log("clicked") },
+            { icon: MenuDotIcon, onClick: () => console.log("clicked") },
+          ]}
         />
         <br />
       </Stack>
@@ -53,7 +119,12 @@ export const Back = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Back">
       <Stack spacing="xl">
-        <Appbar title="Title" back icons={[MenuDotIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          back
+          icons={[{ icon: MenuDotIcon, onClick: () => console.log("clicked") }]}
+        />
         <br />
       </Stack>
     </SystemBlock>
@@ -64,7 +135,15 @@ export const Close = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Close">
       <Stack spacing="xl">
-        <Appbar title="Title" close icons={[TrashIcon, MenuDotIcon]} />
+        <Appbar
+          width={360}
+          title="Title"
+          close
+          icons={[
+            { icon: TrashIcon, onClick: () => console.log("clicked") },
+            { icon: MenuDotIcon, onClick: () => console.log("clicked") },
+          ]}
+        />
         <br />
       </Stack>
     </SystemBlock>
@@ -75,7 +154,14 @@ export const WidthGreaterThan360 = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Without Navigation Item">
       <Stack spacing="xl">
-        <Appbar title="Title" width={550} icons={[ShareIcon,SearchIcon,MenuDotIcon]} />
+        <Appbar
+          title="Title"
+          icons={[
+            { icon: ShareIcon, onClick: () => console.log("clicked") },
+            { icon: SearchIcon, onClick: () => console.log("clicked") },
+            { icon: MenuDotIcon, onClick: () => console.log("clicked") },
+          ]}
+        />
         <br />
       </Stack>
     </SystemBlock>
@@ -86,7 +172,16 @@ export const Extended = () => {
   return (
     <SystemBlock title="BCC Design System - Appbar - Extended">
       <Stack spacing="xl">
-        <Appbar title="Title" icons={[ShareIcon,SearchIcon,MenuDotIcon]} extended/>
+        <Appbar
+          width={360}
+          title="Title"
+          icons={[
+            { icon: ShareIcon, onClick: () => console.log("clicked") },
+            { icon: SearchIcon, onClick: () => console.log("clicked") },
+            { icon: MenuDotIcon, onClick: () => console.log("clicked") },
+          ]}
+          extended
+        />
         <br />
       </Stack>
     </SystemBlock>
