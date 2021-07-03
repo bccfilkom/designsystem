@@ -67,13 +67,13 @@ const Shadow = styled("div")`
   border-radius: 3px;
 `;
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox = ({
   indeterminated,
   disabled,
   value,
   id,
   checked,
-}) => {
+}:CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
   const [isIndeterminated, setIsIndeterminated] = useState(indeterminated);
   const [shadow, setShadow] = useState(false);

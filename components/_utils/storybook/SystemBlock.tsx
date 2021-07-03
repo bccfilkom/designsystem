@@ -7,14 +7,15 @@ interface SystemBlockProps {
   title?: string;
   subtitle?: React.ReactNode;
   noBackground?: boolean;
+  children?:React.ReactNode;
 }
 
-const SystemBlock: React.FC<SystemBlockProps> = ({
+const SystemBlock = ({
   children,
   title,
   subtitle,
   noBackground,
-}) => (
+}:SystemBlockProps) => (
   <Box
     display="flex"
     flexDirection="column"

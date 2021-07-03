@@ -7,6 +7,7 @@ export interface BreadcrumbsProps {
   separator?: string;
   className?: string;
   style?: React.CSSProperties;
+  children: React.ReactNode;
 }
 
 const Nav = styled("nav")`
@@ -19,11 +20,11 @@ const Ol = styled("ol")`
   margin: 0;
 `;
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+const Breadcrumbs= ({
   separator = "/",
   children,
   ...rest
-}) => {
+}: BreadcrumbsProps) => {
   let crumbs;
   crumbs = toArray(children).map((element: any, index) => {
     return React.cloneElement(element, {

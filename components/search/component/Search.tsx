@@ -15,6 +15,7 @@ export interface SearchProps {
   handleChange?: Function;
   handleClear?: Function;
   style?: React.CSSProperties;
+  children?:React.ReactNode;
 }
 
 const FieldContainer = styled("div")`
@@ -56,7 +57,7 @@ const FieldInput = styled("input")`
   }
 `;
 
-const Search: React.FC<SearchProps> = ({
+const Search = ({
   disabled,
   placeholder,
   hintText,
@@ -65,7 +66,7 @@ const Search: React.FC<SearchProps> = ({
   clearValue,
   value,
   ...rest
-}) => {
+}:SearchProps) => {
   return (
     <FieldContainer>
       <SearchIcon

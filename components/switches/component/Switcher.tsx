@@ -71,7 +71,7 @@ const Input = styled("input")`
   }
 `;
 
-const Switcher: React.FC<SwitcherProps> = ({ checked, disabled, onSlide }) => {
+const Switcher = ({ checked, disabled, onSlide }:SwitcherProps) => {
   return (
     <>
       <Switch>

@@ -6,12 +6,14 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 export interface DrawerProps {
   style?: React.CSSProperties;
   isOpened?: boolean;
+  children?:React.ReactNode;
 }
 
 export interface DrawerMenuProps {
   style?: React.CSSProperties;
   name?: string;
   isOp?: boolean;
+  children?:React.ReactNode;
 }
 
 export interface DrawerItemProps {
@@ -21,6 +23,7 @@ export interface DrawerItemProps {
   isOp?: boolean;
   isOpened?: boolean;
   iconDesc?: boolean;
+  children?:React.ReactNode;
 }
 
 const DrawerContainer = styled("div")`
@@ -97,13 +100,7 @@ function useWindowDimensions() {
   return windowDimensions;
 }
 
-const Drawer: React.FC<DrawerProps> & {
-  Head: typeof DrawerHead;
-  Body: typeof DrawerBody;
-  Menu: typeof DrawerMenu;
-  Item: typeof MenuSubItem;
-  SubItem: typeof DrawerSubItem;
-} = ({ children, isOpened }, props) => {
+const Drawer= ({ children, isOpened }:DrawerProps, props) => {
   const [min, setMin] = React.useState(isOpened);
   if(isOpened){
     const newChild = React.Children.map(children, child=>{
@@ -180,7 +177,7 @@ const MenuSubItem = styled("li")`
   list-style-type: none;
 `;
 
-const DrawerMenu: React.FC<DrawerMenuProps> = ({ name, children, isOp },props) => {
+const DrawerMenu= ({ name, children, isOp }:DrawerMenuProps,props) => {
   return (
     <MenuContainer >
       <MenuTitle style={{visibility:!isOp&&"hidden",fontSize:16}}>{name}</MenuTitle>
@@ -189,13 +186,13 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({ name, children, isOp },props) =
   );
 };
 // disabled={disabled} onClick={onClick} style={style}
-const DrawerItem: React.FC<DrawerItemProps> = ({
+const DrawerItem = ({
   children,
   icon,
   name,
   isOpened,
   iconDesc
-}) => {
+}: DrawerItemProps) => {
   const [toggleMenu, setToggleMenu] = useState(isOpened);
   return (
     <>
