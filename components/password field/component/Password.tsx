@@ -16,6 +16,7 @@ export interface PasswordProps {
   handleChange?: Function;
   handleShow?: Function;
   style?: React.CSSProperties;
+  children?:React.ReactNode;
 }
 
 const FieldContainer = styled("div")`
@@ -70,7 +71,7 @@ const HintText = styled("div")`
   line-height: 14px;
 `;
 
-const Password: React.FC<PasswordProps> = ({
+const Password= ({
   disabled,
   placeholder,
   hintText,
@@ -79,7 +80,7 @@ const Password: React.FC<PasswordProps> = ({
   value,
   visibilityEye,
   ...rest
-}) => {
+}:PasswordProps) => {
   return (
     <>
       <FieldContainer>

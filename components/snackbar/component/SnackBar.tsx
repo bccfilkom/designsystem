@@ -98,7 +98,7 @@ const Icon = styled("div")`
   width: 24px;
 `;
 
-const Snackbar: React.FC<SnackBarProps> = ({
+const Snackbar = ({
   text,
   action,
   icon,
@@ -106,7 +106,7 @@ const Snackbar: React.FC<SnackBarProps> = ({
   alignment,
   duration,
   layout,
-}) => {
+}:SnackBarProps) => {
   const [animation, setAnimation] = React.useState("fadeIn");
   const [layoutWidth, setLayout] = React.useState(layout);
   const [hidden, setHidden] = React.useState(false);

@@ -9,6 +9,7 @@ export interface RadioButtonProps {
   checked?: boolean;
   handleChange?: Function;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 const RadioContainer = styled("div")`
@@ -99,14 +100,14 @@ const Label = styled("label")`
   line-height: 20px;
 `;
 
-const RadioButton: React.FC<RadioButtonProps> = ({
+const RadioButton = ({
   checked,
   children,
   disabled,
   handleChange,
   id,
   value,
-}) => {
+}:RadioButtonProps) => {
   const [shadow, setShadow] = React.useState(false);
   return (
     <>

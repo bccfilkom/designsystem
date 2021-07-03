@@ -1,13 +1,13 @@
 import * as React from "react";
 import { TableSkeletonProps, Container, Td, Tr, Th } from "./components";
 
-export const TableSkeleton: React.FC<TableSkeletonProps> = ({
+export const TableSkeleton= ({
   header,
   condensed,
   relaxed,
   horizontalLine,
   stripe,
-}) => {
+}:TableSkeletonProps) => {
   const keys = [];
   header.map(({ key }) => keys.push(key));
   return (

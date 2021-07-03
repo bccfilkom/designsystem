@@ -6,16 +6,17 @@ interface ComponentBlockProps extends Omit<StackProps, "spacing"> {
   withBackground?: boolean;
   scaleTitle?: string;
   pd?: string;
+  children?:React.ReactNode
 }
 
-const ComponentBlock: React.FC<ComponentBlockProps> = ({
+const ComponentBlock = ({
   children,
   title,
   withBackground,
   pd,
   scaleTitle,
   ...rest
-}) => (
+}:ComponentBlockProps) => (
   <Stack spacing="md" {...rest}>
     <Heading color="hitam02" scale={scaleTitle} m={0}>
       {title}

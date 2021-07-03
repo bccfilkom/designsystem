@@ -10,9 +10,10 @@ export interface StackProps extends Omit<BoxProps, "color"> {
   style?: React.CSSProperties;
   color?: string;
   spacing?: Space;
+  children?:React.ReactNode
 }
 
-const Stack: React.FC<StackProps> = ({ children, spacing, ...rest }) => {
+const Stack = ({ children, spacing, ...rest }:StackProps) => {
   const validChildrenArray = React.Children.toArray(children).filter(
     React.isValidElement
   );

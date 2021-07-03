@@ -111,6 +111,7 @@ export interface NavSearchProps extends SearchProps {
   children: React.ReactNode
 }
 
+
 export const NavSearch = ({ children, open, ...rest }: NavSearchProps) => {
 	return React.isValidElement(children) ? (
 		React.cloneElement(children, {
@@ -126,7 +127,7 @@ export const NavSearch = ({ children, open, ...rest }: NavSearchProps) => {
 	) : (
 		<>{children}</>
 	);
-};
+
 
 const Navbar: React.FC<NavbarProps> & {
   Menu: typeof NavMenu;

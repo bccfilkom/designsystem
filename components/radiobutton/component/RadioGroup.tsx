@@ -8,6 +8,7 @@ export interface RadioGroupProps {
   name?: String;
   checked?: boolean;
   style?: React.CSSProperties;
+  children?:React.ReactNode;
 }
 
 const RadioContainer = styled("div")`
@@ -18,7 +19,7 @@ const RadioContainer = styled("div")`
   box-sizing: content-box;
 `;
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ children }) => {
+const RadioGroup = ({ children }:RadioGroupProps) => {
   return (
     <>
       <RadioContainer>{children}</RadioContainer>
