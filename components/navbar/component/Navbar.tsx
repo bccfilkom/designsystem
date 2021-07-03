@@ -1,187 +1,152 @@
-import * as React from "react";
-import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-import PropTypes from "prop-types";
-import { colors } from "../../_utils";
+import * as React from 'react';
+import styled from 'styled-components';
+import { SearchProps } from '../../search/component/Search';
 
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import { useState } from "react";
-import NavLink, { NavLinkProps } from './NavLink';
-import Search from '../../search/component/Search';
-
-
-export type NavIconProps = {
-  icon: React.ReactNode;
-  href: string;
-};
-
-export interface NavbarProps {
+interface NavbarProps {
   children?: React.ReactNode;
-  items?: NavLinkProps[];
-  logo?: string;
-  icons?: NavIconProps[];
-  searchActive?: boolean;
-  searchValue?: string;
-  handleSearch?: Function; 
-  handleSearchClear?: Function;
+  className?: string;
   style?: React.CSSProperties;
 }
 
- const Nav = styled.nav`
-  background: #0081bf;
-  height: 64px;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 48px;
-  z-index: 10;
+interface NavItemProps {
+  active?: boolean;
+  children?: string;
+}
+
+const NavbarComp = styled.nav`
+	background: #0081bf;
+	height: 64px;
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 48px;
+	z-index: 10;
+	@media screen and (max-width: 768px) {
+		padding: 0px 16px;
+	}
 `;
 
 export const NavLogo = styled.div`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: space-between;
-  text-decoration: none;
-  cursor: pointer;
-  margin-right: 24px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: space-between;
+	text-decoration: none;
+	cursor: pointer;
+	margin-right: 24px;
 `;
 
-export const NavItem = styled.a`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0 8px;
-  font-size:14px;
-  &:not(:last-child){
-    margin-right: 8px;
-  }
-  :hover {
-    background-color: #5db7e6;
+export const NavItem = styled.a<NavItemProps>`
+  position: relative;
+	color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 0 8px;
+  font-weight: normal;
+	font-size: 14px;
+	&:not(:last-child) {
+		margin-right: 8px;
+	}
+	:hover {
+		background-color: #5db7e6;
+	}
+  :before {
     color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    content: '${(props) => props.children}';
+    font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+    overflow: hidden;
   }
 `;
 
 export const NavIcon = styled.a`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: space-between;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 22px 0;
-  margin-left: 16px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: space-between;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 22px 0;
+	margin-left: 16px;
 `;
 
 export const Bars = styled.div`
-  display: none;
-  color: #fff;
-  /* visibility: hidden; */
+	display: none;
+	color: #fff;
+	/* visibility: hidden; */
 
-  @media screen and (max-width: 768px) {
-    display: block;
-    height: 100%;
-    cursor: pointer;
-    margin: 22px 0;
-  }
+	@media screen and (max-width: 768px) {
+		display: grid;
+		place-items: center;
+	}
 `;
 
 export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-
-  @media screen and (max-width: 768px) {
-    display: none;
+	display: flex;
+	align-items: center;
+  & > * {
+    height: 100%;
   }
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `;
 
 export const NavIcons = styled.div`
-  display: flex;
-  align-items: center;
-
+	display: flex;
+	align-items: center;
 `;
 
+export interface NavSearchProps extends SearchProps {
+	open: boolean;
+  children: React.ReactNode
+}
 
 
-const Navbar = ({
-  // items,
-  // logo,
-  // icons,
-  // searchActive,
-  // searchValue,
-  // handleSearch,
-  // handleSearchClear,
-  children,
-  ...rest
-}:NavbarProps) => {
-  const [Active, setActive] = useState({
-    activeItem: null,
-    items: [],
-  });
-  const [search, setSearch] = useState("");
-  const [visibleSearch, setVisibleSearch] = useState(false);
-  return (
-    <>
-      <Nav {...rest}>
-        {children}
-      </Nav>
-    </>
-  );
-};
+export const NavSearch = ({ children, open, ...rest }: NavSearchProps) => {
+	return React.isValidElement(children) ? (
+		React.cloneElement(children, {
+			...children.props,
+			style: {
+				transformOrigin: 'right center',
+				transition: 'all 0.125s ease-in',
+				transform: `scale(${open ? 1 : 0})`,
+				opacity: open ? 1 : 0
+			},
+			...rest
+		})
+	) : (
+		<>{children}</>
+	);
 
-Navbar.defaultProps = {
 
-};
+const Navbar: React.FC<NavbarProps> & {
+  Menu: typeof NavMenu;
+  Logo : typeof NavLogo;
+  Item : typeof NavItem;
+  Icon : typeof NavIcon;
+  Bars : typeof Bars;
+  Icons : typeof NavIcons;
+  Search : typeof NavSearch;
+} = (props) => {
+  return <NavbarComp {...props} />
+}
+
+Navbar.Menu = NavMenu;
+Navbar.Logo = NavLogo;
+Navbar.Item = NavItem;
+Navbar.Icon = NavIcon;
+Navbar.Bars = Bars;
+Navbar.Icons = NavIcons;
+Navbar.Search = NavSearch;
 
 export default Navbar;
-
-
-// <Bars>
-// <MenuIcon />
-// </Bars>
-// <NavMenu>
-// {logo && (
-//   <NavLogo>
-//     <img src={logo} alt="logo" style={{ height: "20px" }} />
-//   </NavLogo>
-// )}
-// {items && (items.map((navbarItem: NavLinkProps) => (
-//   <NavLink
-//     key={navbarItem.name}
-//     {...navbarItem}
-//     active={navbarItem.name === Active.activeItem}
-//     onClick={() => setActive({ ...Active, activeItem: navbarItem.name })}
-//   />
-// )))}
-// </NavMenu>
-// <NavIcons>
-// {visibleSearch && (
-// <Search
-//   value={searchValue}
-//   placeholder="Search here"
-//   clearValue
-//   handleChange={handleSearch}
-//   handleClear={handleSearchClear}
-// />
-// )}
-// {searchActive && (
-// <NavIcon onClick={() => setVisibleSearch(!visibleSearch)}>
-//   <SearchIcon />
-// </NavIcon>
-// )}
-// <NavMenu>
-// {icons && (icons.map((navbarIcon: NavIconProps) => (
-//   <NavIcon
-//     href={navbarIcon.href}
-//   >
-//     {navbarIcon.icon}
-//   </NavIcon>
-// )))}
-// </NavMenu>
-// </NavIcons>
