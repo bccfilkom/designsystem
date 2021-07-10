@@ -10,6 +10,7 @@ interface DialogProps {
   children: ReactNode;
   onCancel?: Function;
   type?: "list" | "input";
+  confirmation?: boolean;
   primaryButton: {
     text: string;
     onClick: Function;
@@ -68,28 +69,50 @@ const Title = styled.h6`
 `;
 
 const Content = styled.div`
-  margin: 0px 24px;
+  margin: 0px 12px;
+  padding: 0 12px;
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
   color: ${primaryText};
-  ${(props) =>
-    props.type === "input" &&
-    css`
-      > div, input {
-        width: 100%;
+  ${(props) => {
+    switch (props.type) {
+      case "input": {
+        return css`
+          > div,
+          input {
+            width: 100%;
+          }
+        `;
       }
-    `}
+      case "list": {
+        return css`
+          min-height: 200px;
+          max-height: 400px;
+          overflow-y: auto;
+          padding: 8px 12px;
+          &::-webkit-scrollbar {
+            width: 3px;
+            border-radius: 13px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #d8d8d8;
+          }
+        `;
+      }
+    }
+  }}
 `;
 
 const Footer = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  margin: 24px 16px 16px 0px;
+  padding: 24px 16px 16px 0px;
   ${(props) =>
-    props.type === "input" &&
+    props.type === "list" &&
     css`
-      margin-top: 40px;
+      border-top: 1px solid #c0c0c0;
+      padding-top: 16px;
     `}
   > * {
     margin-left: 8px;
@@ -109,6 +132,7 @@ const Dialog = (props: DialogProps) => {
     children,
     primaryButton,
     secondaryButton,
+    confirmation,
     visible,
     type,
     onCancel,
@@ -137,20 +161,26 @@ const Dialog = (props: DialogProps) => {
         <Container ref={dialogRef}>
           <Title type={type}>{title}</Title>
           <Content type={type}>{children}</Content>
-          <Footer type={type}>
-            <Button onClick={primaryButton.onClick}>
-              {primaryButton.text}
-            </Button>
-            {secondaryButton && (
-              <Button type="text" onClick={secondaryButton.onClick}>
-                {secondaryButton.text}
+          {confirmation && (
+            <Footer type={type}>
+              <Button onClick={primaryButton.onClick}>
+                {primaryButton.text}
               </Button>
-            )}
-          </Footer>
+              {secondaryButton && (
+                <Button type="text" onClick={secondaryButton.onClick}>
+                  {secondaryButton.text}
+                </Button>
+              )}
+            </Footer>
+          )}
         </Container>
       </Wrapper>
     </>
   );
+};
+
+Dialog.defaultProps = {
+  confirmation: true,
 };
 
 export default Dialog;
