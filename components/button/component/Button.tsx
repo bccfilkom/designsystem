@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { colors, radiuss } from "../../_utils/variables";
 import style from "./ButtonStyle";
 export interface ButtonProps {
   type?: "secondary" | "text" | "success" | "error";

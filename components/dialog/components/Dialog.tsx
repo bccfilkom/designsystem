@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Button } from "../../button";
 
 interface DialogProps {
@@ -9,6 +9,7 @@ interface DialogProps {
   footer?: ReactNode[];
   children: ReactNode;
   onCancel?: Function;
+  type?: "list" | "input";
   primaryButton: {
     text: string;
     onClick: Function;
@@ -19,6 +20,7 @@ interface DialogProps {
   };
 }
 
+const primaryText = "#143045";
 const Wrapper = styled.div`
   position: fixed;
   display: flex;
@@ -47,22 +49,48 @@ const Container = styled.div`
   @media screen and (min-width: 1200px) {
     width: 560px;
   }
-
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
   height: auto;
   border-radius: 10px;
   background: white;
 `;
 
+const Title = styled.h6`
+  font-weight: 500;
+  font-size: 20px;
+  padding: 24px;
+  color: ${primaryText};
+  ${(props) =>
+    props.type === "list" &&
+    css`
+      border-bottom: 1px solid #c0c0c0;
+    `}
+`;
+
 const Content = styled.div`
-  margin: 24px;
+  margin: 0px 24px;
   font-weight: 400;
   font-size: 14px;
+  line-height: 21px;
+  color: ${primaryText};
+  ${(props) =>
+    props.type === "input" &&
+    css`
+      > div, input {
+        width: 100%;
+      }
+    `}
 `;
 
 const Footer = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  margin: 0 16px 16px 0px;
+  margin: 24px 16px 16px 0px;
+  ${(props) =>
+    props.type === "input" &&
+    css`
+      margin-top: 40px;
+    `}
   > * {
     margin-left: 8px;
   }
@@ -82,6 +110,7 @@ const Dialog = (props: DialogProps) => {
     primaryButton,
     secondaryButton,
     visible,
+    type,
     onCancel,
   } = props;
   const dialogRef = useRef();
@@ -106,9 +135,9 @@ const Dialog = (props: DialogProps) => {
     <>
       <Wrapper visible={visible} onClick={onWrapperClick}>
         <Container ref={dialogRef}>
-          <h6 style={{ margin: "24px 24px 0 24px" }}>{title}</h6>
-          <Content>{children}</Content>
-          <Footer>
+          <Title type={type}>{title}</Title>
+          <Content type={type}>{children}</Content>
+          <Footer type={type}>
             <Button onClick={primaryButton.onClick}>
               {primaryButton.text}
             </Button>

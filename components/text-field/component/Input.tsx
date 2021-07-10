@@ -88,7 +88,6 @@ const HintText = styled("span")`
         return "#E84C3D";
     }
   }};
-};
   line-height: 14px;
 `;
 
@@ -102,10 +101,10 @@ const Input = ({
   type,
   icon,
   skeleton,
-}:InputProps) => {
+}: InputProps) => {
   return (
     <ContainerInput>
-      <div>
+      <>
         {action === "success" && value.length > 0 ? (
           <img
             src={Success}
@@ -120,7 +119,7 @@ const Input = ({
             top: "18px",
           }}
         >
-          <img src = {icon}/>
+          <img src={icon} />
         </span>
         <InputField
           placeholder={placeholder}
@@ -135,7 +134,7 @@ const Input = ({
             paddingRight: action === "success" ? "48px" : "16px",
           }}
         ></InputField>
-      </div>
+      </>
       {hintText.length > 0 ? (
         <HintText
           className={skeleton && "skeleton"}
