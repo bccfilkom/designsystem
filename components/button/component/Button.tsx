@@ -39,7 +39,7 @@ const Button = (props: ButtonProps) => {
   const { children, icon } = props;
   return (
     <ButtonElement {...props}>
-      {icon && <img src={icon} className="icon" />}
+      {icon && <img src={icon} className="icon" alt="button-icon"/>}
       {children}
     </ButtonElement>
   );
