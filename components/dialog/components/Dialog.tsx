@@ -36,7 +36,18 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: 560px;
+  @media screen and (min-width: 576px) {
+    width: 296px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 560px;
+  }
+
   height: auto;
   border-radius: 10px;
   background: white;
