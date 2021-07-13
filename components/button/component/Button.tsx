@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { colors, radiuss } from "../../_utils/variables";
 import style from "./ButtonStyle";
 export interface ButtonProps {
   type?: "secondary" | "text" | "success" | "error";
@@ -39,7 +38,7 @@ const Button = (props: ButtonProps) => {
   const { children, icon } = props;
   return (
     <ButtonElement {...props}>
-      {icon && <img src={icon} className="icon" />}
+      {icon && <img src={icon} className="icon" alt="button-icon"/>}
       {children}
     </ButtonElement>
   );
