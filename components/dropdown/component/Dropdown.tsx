@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { useOutsideClick } from '../../../shared/hooks';
 import { colors } from '../../_utils/variables';
 import { KeyboardArrowDown } from '@material-ui/icons';
@@ -88,7 +88,7 @@ const Dropdown = ({ value, children, type }: DropdownProps) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useOutsideClick(wrapperRef, () => setShow(false));
+  useOutsideClick({ref: wrapperRef, fun: () => setShow(false)});
   const itemWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { setShow });

@@ -12,8 +12,8 @@ export interface SearchProps {
   value?: string;
   hintText?: string;
   clearValue?: boolean;
-  handleChange?: Function;
-  handleClear?: Function;
+  handleChange?: () => void;
+  handleClear?: () => void;
   style?: React.CSSProperties;
   children?:React.ReactNode;
 }

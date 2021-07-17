@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../_utils/variables";
 
-const NavItemIcon = require("../../_foundations/icon/menu.svg") as string;
-const CloseIcon = require("../../_foundations/icon/close.svg") as string;
-const BackIcon = require("../../_foundations/icon/back.svg") as string;
+import NavItemIcon from "../../_foundations/icon/menu.svg"
+import CloseIcon from "../../_foundations/icon/close.svg"
+import BackIcon from "../../_foundations/icon/back.svg"
 
 export type AppbarIcon = {
   icon?: string;

@@ -1,8 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-import PropTypes from "prop-types";
-import { colors } from "../../_utils";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Lock from "@material-ui/icons/Lock";
@@ -13,19 +10,19 @@ export interface PasswordProps {
   placeholder?: string;
   value?: string;
   hintText?: string;
-  handleChange?: Function;
-  handleShow?: Function;
+  handleChange?: () => void;
+  handleShow?: () => void;
   style?: React.CSSProperties;
   children?:React.ReactNode;
 }
 
-const FieldContainer = styled("div")`
+const FieldContainer = styled.div`
   display: inline-flex;
   align-items: center;
   position: relative;
 `;
 
-const EyeContainer = styled("div")`
+const EyeContainer = styled.div`
   cursor: pointer;
   align-self: center;
 `;
