@@ -1,13 +1,11 @@
 import * as React from "react";
 import { Stack } from "../_foundations/common";
 import { withKnobs } from "@storybook/addon-knobs";
-// @ts-ignore
 import User from "../_foundations/icon/user.svg";
 
 import {
   SystemWrapper,
   SystemBlock,
-  ComponentBlock,
 } from "../_utils/storybook";
 import Input from "./component/Input";
 import { useState } from "react";
@@ -22,7 +20,7 @@ export const Default = () => {
   return (
     <SystemBlock title="BCC Design System - Text Field">
       <Stack spacing="xl">
-        <Input value={value} handleChange={(e) => setValue(e.target.value)} />
+        <Input value={value} handleChange={(e) => setValue(e.target.value)} style={{width: '100%'}}/>
       </Stack>
     </SystemBlock>
   );

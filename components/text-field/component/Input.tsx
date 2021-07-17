@@ -101,9 +101,10 @@ const Input = ({
   type,
   icon,
   skeleton,
+  style
 }: InputProps) => {
   return (
-    <ContainerInput>
+    <ContainerInput style={style}>
       <>
         {action === "success" && value.length > 0 ? (
           <img
@@ -132,6 +133,7 @@ const Input = ({
           style={{
             paddingLeft: icon ? "48px" : "16px",
             paddingRight: action === "success" ? "48px" : "16px",
+            ...style
           }}
         ></InputField>
       </>

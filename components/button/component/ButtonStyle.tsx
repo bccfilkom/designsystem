@@ -87,7 +87,7 @@ const primary = css`
 `;
 
 const text = css`
-  background-color: #fff;
+  background-color: transparent;
   color: #3598db;
   border: none;
   ${rippleBase}
@@ -111,7 +111,7 @@ const textDisabled = css`
 
 const secondary = css`
   color: ${colors.biru};
-  background: ${colors.putih};
+  background: transparent;
   border: 1.5px solid ${colors.biru};
   ${rippleBase}
   &:hover {
