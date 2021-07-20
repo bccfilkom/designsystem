@@ -9,8 +9,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
-  "include": ["components/index.ts", "types/images.d.ts"],
+  "include": ["components", "types/images.d.ts"],
   "exclude": ["node_modules", "build", "src/**/*.stories.tsx"]
 }
