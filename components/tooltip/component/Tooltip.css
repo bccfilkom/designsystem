@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+.other-option {
+  margin-top: 10px;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.other-option > * {
+  cursor: pointer;
+}
+
+.tooltip-anchor {
+  color: #3598DB;
+}
