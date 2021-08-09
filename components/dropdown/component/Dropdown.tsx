@@ -7,6 +7,7 @@ import { KeyboardArrowDown } from '@material-ui/icons';
 export interface DropdownProps {
   value: string;
   type?: string;
+  placeholder?: string;
   children: React.ReactNode;
 }
 
@@ -83,7 +84,7 @@ const DropdownItemStyle = styled.li`
   }
 `;
 
-const Dropdown = ({ value, children, type }: DropdownProps) => {
+const Dropdown = ({ value, children, placeholder, type }: DropdownProps) => {
   const [show, setShow] = useState(false);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -97,7 +98,7 @@ const Dropdown = ({ value, children, type }: DropdownProps) => {
   return (
     <div ref={wrapperRef}>
       <DropdownSelect onClick={() => setShow(!show)} onOpen={show}>
-        <div>{value || 'Placeholder Text'}</div>
+        <div>{value || placeholder}</div>
         <div>
           <KeyboardArrowDown style={{ fontSize: '1.5em', color: '#143045' }} />
         </div>
