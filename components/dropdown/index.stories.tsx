@@ -58,7 +58,7 @@ export const Scrollable = () => {
     <SystemBlock title="BCC Design System - Dropdown">
       <Stack spacing="xl">
         <div style={{ width: '300px' }}>
-          <Dropdown type="scrollable" value={value} placeholder="Dropdown Placeholder">
+          <Dropdown type="scrollable" value={value} placeholder={placeholder}>
             {data.map((item) => (
               <DropdownItem
                 key={item.value}
