@@ -60,6 +60,7 @@ const Title = styled.h6`
   font-weight: 500;
   font-size: 20px;
   padding: 24px;
+  margin: 0;
   color: ${primaryText};
   ${(props) =>
     props.type === "list" &&
