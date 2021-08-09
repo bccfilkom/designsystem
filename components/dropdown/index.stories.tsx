@@ -14,6 +14,7 @@ export default {
 };
 
 export const Default = () => {
+  const placeholder = text('placeholder', 'This is placeholder text');
   const [data] = useState([
     { value: 'FE', name: 'Frontend Developer' },
     { value: 'BE', name: 'Backend Developer' },
@@ -25,7 +26,7 @@ export const Default = () => {
     <SystemBlock title="BCC Design System - Dropdown">
       <Stack spacing="xl">
         <div style={{ width: '300px' }}>
-          <Dropdown value={value} placeholder="Dropdown Placeholder">
+          <Dropdown value={value} placeholder={placeholder}>
             {data.map((item) => (
               <DropdownItem
                 key={item.value}
@@ -42,6 +43,7 @@ export const Default = () => {
 };
 
 export const Scrollable = () => {
+  const placeholder = text('placeholder', 'This is placeholder text');
   const [data] = useState([
     { value: 'FE', name: 'Frontend Developer' },
     { value: 'BE', name: 'Backend Developer' },
