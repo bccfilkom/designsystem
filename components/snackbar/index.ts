@@ -1,2 +1,2 @@
-export { default as Snackbar } from './component/SnackBar'
+export { default as SnackBar } from './component/SnackBar'
 export * from './component/SnackBar'
