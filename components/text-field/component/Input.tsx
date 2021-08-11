@@ -16,6 +16,7 @@ export interface InputProps {
   icon?: string;
   style?: React.CSSProperties;
   skeleton?: boolean;
+  required?: boolean;
 }
 
 const ContainerInput = styled("div")`
@@ -101,7 +102,8 @@ const Input = ({
   type,
   icon,
   skeleton,
-  style
+  style,
+  required,
 }: InputProps) => {
   return (
     <ContainerInput style={style}>
@@ -123,6 +125,7 @@ const Input = ({
           <img src={icon} />
         </span>
         <InputField
+          required={required}
           placeholder={placeholder}
           disabled={disabled}
           action={value.length > 0 ? action : "normal"}
@@ -133,7 +136,7 @@ const Input = ({
           style={{
             paddingLeft: icon ? "48px" : "16px",
             paddingRight: action === "success" ? "48px" : "16px",
-            ...style
+            ...style,
           }}
         ></InputField>
       </>
@@ -157,6 +160,7 @@ Input.defaultProps = {
   hintText: "",
   action: "normal",
   type: "text",
+  required: false,
 };
 
 export default Input;

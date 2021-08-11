@@ -14,6 +14,7 @@ export interface TextAreaProps {
   className?: string;
   style?: React.CSSProperties;
   skeleton?: boolean;
+  required?: boolean;
 }
 
 const InputContainer = styled("div")`
@@ -22,57 +23,57 @@ const InputContainer = styled("div")`
 `;
 
 const FieldInput = styled("textarea")`
-display: inline-block;
-padding: 16px;
-padding-right : ${(props) => props.isWarning && "28px"};
-border: 1.5px solid #d8d8d8;
-box-sizing: border-box;
-font-size: 14px;
-border-radius: 14px;
-background-color: white;
-outline: none;
-width: 440px;
-height: 120px;
-min-width: 280px;
-min-height: 70px;
-animation: none!important;
-
-&::placeholder {
-  color: rgba(20, 48, 69, 0.5);
-}
-
-&::-webkit-scrollbar {
-  width: 14px;
-}
-
-&::-webkit-scrollbar-thumb {
-  border: 4px solid rgba(0, 0, 0, 0);
-  background-clip: padding-box;
-  border-radius: 7px;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-&:active,
-&:focus {
-  border-color: ${(props) => (props.isWarning ? "#fb9e2e" : "#3598DB")};
-  color: #143045;
-}
-
-&:disabled {
-  cursor: not-allowed;
-  border-color: #d8d8d8;
-  background-color: #fbfbfb;
+  display: inline-block;
+  padding: 16px;
+  padding-right: ${(props) => props.isWarning && "28px"};
+  border: 1.5px solid #d8d8d8;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 14px;
+  background-color: white;
+  outline: none;
+  width: 440px;
+  height: 120px;
+  min-width: 280px;
+  min-height: 70px;
+  animation: none !important;
 
   &::placeholder {
-    color: #d8d8d8;S
+    color: rgba(20, 48, 69, 0.5);
   }
-}`;
+
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  &:active,
+  &:focus {
+    border-color: ${(props) => (props.isWarning ? "#fb9e2e" : "#3598DB")};
+    color: #143045;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border-color: #d8d8d8;
+    background-color: #fbfbfb;
+
+    &::placeholder {
+      color: #d8d8d8;
+    }
+  }
+`;
 
 const HintText = styled("div")`
   margin-top: 8px;
   font-size: 12px;
-  color: ${(props) => (props.isWarning ? "#FB9E2E" : "#143045")}
-};
+  color: ${(props) => (props.isWarning ? "#FB9E2E" : "#143045")};
   line-height: 14px;
 `;
 
@@ -85,8 +86,9 @@ const TextArea = ({
   value,
   className,
   skeleton,
+  required,
   ...rest
-}:TextAreaProps) => {
+}: TextAreaProps) => {
   return (
     <>
       <InputContainer>
@@ -94,7 +96,6 @@ const TextArea = ({
           <img
             src={Warning}
             alt="warning-icon"
-
             style={{
               position: "absolute",
               right: "8px",
@@ -104,6 +105,7 @@ const TextArea = ({
         ) : null}
 
         <FieldInput
+          required={required}
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
@@ -127,6 +129,7 @@ TextArea.defaultProps = {
   placeholder: "Placeholder Text Area",
   hintText: "",
   value: "",
+  required: false,
 };
 
 export default TextArea;

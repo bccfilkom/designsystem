@@ -12,6 +12,7 @@ export interface CheckboxProps {
   value?: string;
   id?: string;
   checked?: boolean;
+  onChange?: (value: boolean) => void;
 }
 
 const Label = styled("label")`
@@ -45,8 +46,13 @@ const SpanCheckMark = styled("span")`
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    props.disabled ? props.checked || props.indeterminated ? "#D8D8D8": "#FBFBFB" : props.checked || props.indeterminated 
-    ? colors.biru03 : "#fff"};
+    props.disabled
+      ? props.checked || props.indeterminated
+        ? "#D8D8D8"
+        : "#FBFBFB"
+      : props.checked || props.indeterminated
+      ? colors.biru03
+      : "#fff"};
 `;
 
 const CheckMarkFill = styled("div")`
@@ -72,8 +78,9 @@ const Checkbox = ({
   disabled,
   value,
   id,
+  onChange,
   checked,
-}:CheckboxProps) => {
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
   const [isIndeterminated, setIsIndeterminated] = useState(indeterminated);
   const [shadow, setShadow] = useState(false);
@@ -87,19 +94,23 @@ const Checkbox = ({
           }
           setIsIndeterminated(false);
           setIsChecked(!isChecked);
+          onChange(!isChecked);
         }}
       >
-        <div >
+        <div>
           <SpanCheckMark
             checked={isChecked}
             disabled={disabled}
             indeterminated={isIndeterminated}
-            onMouseEnter = {()=>setShadow(true)} onMouseLeave={()=>setShadow(false)}
+            onMouseEnter={() => setShadow(true)}
+            onMouseLeave={() => setShadow(false)}
           >
             {isChecked ? (
-              <img src={CheckIcon} alt='check' style={styledIcon} />
+              <img src={CheckIcon} alt="check" style={styledIcon} />
             ) : (
-              indeterminated && <img src={HypenIcon} alt='hypen' style={styledIcon} />
+              indeterminated && (
+                <img src={HypenIcon} alt="hypen" style={styledIcon} />
+              )
             )}
           </SpanCheckMark>
           {shadow && !disabled && <Shadow isChecked={isChecked} />}
@@ -112,7 +123,8 @@ const Checkbox = ({
           disabled={disabled}
           id={id}
           ref={(el) => el && (el.indeterminate = isIndeterminated)}
-          onMouseEnter = {()=>setShadow(true)} onMouseLeave={()=>setShadow(false)}
+          onMouseEnter={() => setShadow(true)}
+          onMouseLeave={() => setShadow(false)}
         />
         <CheckMarkFill>{value}</CheckMarkFill>
       </Label>
