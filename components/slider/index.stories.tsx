@@ -24,7 +24,7 @@ const Styles = styled.div`
 `;
 
 
-export const iconTopCenter = () => {
+export const Enabled = () => {
     return(
         <>
           <SystemBlock title="BCC Design System - Slider">
@@ -36,15 +36,22 @@ export const iconTopCenter = () => {
               </Styles>
             </Stack>
           </SystemBlock>
-          <SystemBlock title="BCC Design System - Slider Disabled">
-            <Stack spacing="xl">
-              <Styles>
-                <div className="wrapper">
-                  <Slider min="0" max="100" value="50" disabled/>
-                </div>
-              </Styles>
-            </Stack>
-          </SystemBlock>
         </>
     )
+}
+
+export const Disabled = () => {
+  return(
+      <>
+        <SystemBlock title="BCC Design System - Slider Disabled">
+          <Stack spacing="xl">
+            <Styles>
+              <div className="wrapper">
+                <Slider min="0" max="100" value="50" disabled/>
+              </div>
+            </Styles>
+          </Stack>
+        </SystemBlock>
+      </>
+  )
 }
