@@ -47,7 +47,7 @@ const Tooltip = styled('div')`
 
     text-align: justify;
     word-spacing: 0;
-    padding: 10px 18px;
+    padding: 20px 18px;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     opacity: 0;
