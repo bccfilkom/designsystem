@@ -33,7 +33,7 @@ const Styles = styled.div`
 export const TopCenter = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">
@@ -60,7 +60,7 @@ export const TopCenter = () => {
 export const TopLeft = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">
@@ -87,7 +87,7 @@ export const TopLeft = () => {
 export const TopRight = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">
@@ -114,7 +114,7 @@ export const TopRight = () => {
 export const BottomCenter = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">
@@ -141,7 +141,7 @@ export const BottomCenter = () => {
 export const BottomLeft = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">
@@ -168,7 +168,7 @@ export const BottomLeft = () => {
 export const BottomRight = () => {
     return(
         <>
-            <SystemBlock title="BCC Design System - Tooltip With Other Button">
+            <SystemBlock title="BCC Design System - Tooltip">
                 <Stack spacing="xl">
                     <Styles>
                         <div className="wrapper">

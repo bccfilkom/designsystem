@@ -51,9 +51,8 @@ const Tooltip = styled('div')`
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     opacity: 0;
-    // opacity: 1;
+    visibility: hidden;
     z-index: 2000;
-    // pointer-events: none;
     transition: 0.2s;
 
     &::before {
@@ -76,15 +75,12 @@ const Tooltip = styled('div')`
 
             if (posTwo == "right") {
                 style += "left: calc(0% + 20px);";
-                // style += "translateX(20%);";
             }
             else if (posTwo == "left") {
                 style += "left: calc(100% - 20px);";
-                // style += "translateX(80%);";
             }
             else {
                 style += "left: 50%;";
-                // style += "translateX(50%);";
             }
 
             return style;
@@ -95,7 +91,6 @@ const Tooltip = styled('div')`
 `
 
 const Icon = styled('div')`
-    // margin: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,8 +101,9 @@ const Icon = styled('div')`
 
     &:hover ${Tooltip}{
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
-        transition: 0s;
+        transition: .1s;
     }
 `
 
