@@ -25,7 +25,7 @@ const Styles = styled.div`
         height: 300px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
     }
 `;
 
