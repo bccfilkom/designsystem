@@ -37,12 +37,29 @@ export const TopCenter = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top center" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top center" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top center" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top center" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
             </div>
           </Styles>
         </Stack>
@@ -58,12 +75,29 @@ export const TopLeft = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top left" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top left" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top left" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top left" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
             </div>
           </Styles>
         </Stack>
@@ -79,12 +113,29 @@ export const TopRight = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top right" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="top right" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top right" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="top right" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
             </div>
           </Styles>
         </Stack>
@@ -100,12 +151,29 @@ export const BottomCenter = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom center" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom center" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom center" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom center" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
             </div>
           </Styles>
         </Stack>
@@ -121,12 +189,29 @@ export const BottomLeft = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom left" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom left" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom left" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom left" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
             </div>
           </Styles>
         </Stack>
@@ -142,12 +227,29 @@ export const BottomRight = () => {
         <Stack spacing="xl">
           <Styles>
             <div className="wrapper">
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom right" otherOption width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
-              <Tooltip text="This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed." position="bottom right" width="300">
-                <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
-              </Tooltip>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom right" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                  <Tooltip.OtherOptions>
+                    <Tooltip.ButtonMoreInfo>More Info</Tooltip.ButtonMoreInfo>
+                    <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                  </Tooltip.OtherOptions>
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+
+              <Tooltip.Wrapper>
+                <Tooltip.Box position="bottom right" width="300">
+                  This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
+                </Tooltip.Box>
+                <Tooltip.Trigger>
+                  <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+                </Tooltip.Trigger>
+              </Tooltip.Wrapper>
+              
             </div>
           </Styles>
         </Stack>

@@ -8,20 +8,19 @@ import Warning from "@material-ui/icons/Warning";
 import './Tooltip.css'
 import Button from '../..//button/component/Button'
 
-const Wrapper = styled('div')`
+const TooltipContainer = styled('div')`
     display: inline-flex;
     font-family: 'Work-Sans', sans-serif;
     font-size: 14px;
 `
 
-const Tooltip = styled('div')`
+const Box = styled('div')`
     position: absolute;
     font-family: 'Work Sans', sans-serif;
     ${props => {
     let posOne = props.position.split(" ")[0];
 
     if (posOne == "bottom") {
-      console.log(props.children.clientWidth)
       return "top: calc(100% + 15px);"
     }
     else {
@@ -99,7 +98,7 @@ const Icon = styled('div')`
     z-index: 2;
     cursor: default;
 
-    &:hover ${Tooltip}{
+    &:hover ${Box}{
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -114,39 +113,33 @@ const Trigger = styled('span')`
     z-index: 2;
 `
 
-const setOtherOption = styled('div')`
-    margin-top: 10px;
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
+const OtherOptions = styled('div')`
+  margin-top: 10px;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    & > * {
-        cursor: pointer;
-    }
+  & > * {
+    cursor: pointer;
+  }
 `
 
-const tooltipAnchor = styled('span')`
-    color: #3598DB;
+const ButtonMoreInfo = styled('span')`
+  color: #3598DB;
 `
 
-const theTooltip = (props) => {
-
+const Wrapper = (props) => {
   return (
     <>
-      <Wrapper>
+      <TooltipContainer>
         <Icon style={{ color: "red" }}>
-          <Tooltip position={props.position ? props.position : "top center"} width={props.width}>
-            {props.text}
-            {props.otherOption && <div className="other-option"><span className="tooltip-anchor">More Info</span><Button onClick={() => console.log("Hello world")}>BUTTON</Button></div>}
-          </Tooltip>
-          <Trigger>
-            {props.children ? props.children : <button>Click</button>}
-          </Trigger>
+          {props.children}
         </Icon>
-      </Wrapper>
+      </TooltipContainer>
     </>
   );
 };
 
-export default theTooltip
+export default { Wrapper, Box, Trigger, OtherOptions, ButtonMoreInfo }
