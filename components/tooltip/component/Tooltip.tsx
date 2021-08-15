@@ -18,16 +18,16 @@ const Tooltip = styled('div')`
     position: absolute;
     font-family: 'Work Sans', sans-serif;
     ${props => {
-        let posOne = props.position.split(" ")[0];
+    let posOne = props.position.split(" ")[0];
 
-        if (posOne == "bottom") {
-            console.log(props.children.clientWidth)
-            return "top: calc(100% + 15px);"
-        }
-        else {
-            return "bottom: calc(100% + 15px);"
-        }
-    }}
+    if (posOne == "bottom") {
+      console.log(props.children.clientWidth)
+      return "top: calc(100% + 15px);"
+    }
+    else {
+      return "bottom: calc(100% + 15px);"
+    }
+  }}
     background: #143045;
     ${props => props.width ? "width:" + props.width + "px" : "display: block"};
     color: white;
@@ -35,15 +35,15 @@ const Tooltip = styled('div')`
     font-size: 14px;
 
     ${props => {
-        let posTwo = props.position.split(" ")[1];
+    let posTwo = props.position.split(" ")[1];
 
-        if (posTwo == "left") {
-            return "transform: translateX(calc(-50% + 20px));";
-        }
-        else if (posTwo == "right") {
-            return "transform: translateX(calc(50% - 20px));";
-        }
-    }}
+    if (posTwo == "left") {
+      return "transform: translateX(calc(-50% + 20px));";
+    }
+    else if (posTwo == "right") {
+      return "transform: translateX(calc(50% - 20px));";
+    }
+  }}
 
     text-align: justify;
     word-spacing: 0;
@@ -64,27 +64,27 @@ const Tooltip = styled('div')`
         background: #143045;
 
         ${props => {
-            let [posOne, posTwo] = props.position.split(" ");
-            let style = "";
-            if (posOne == "bottom") {
-                style += "top: -4px;";
-            }
-            else {
-                style += "bottom: -4px;";
-            }
+    let [posOne, posTwo] = props.position.split(" ");
+    let style = "";
+    if (posOne == "bottom") {
+      style += "top: -4px;";
+    }
+    else {
+      style += "bottom: -4px;";
+    }
 
-            if (posTwo == "right") {
-                style += "left: calc(0% + 20px);";
-            }
-            else if (posTwo == "left") {
-                style += "left: calc(100% - 20px);";
-            }
-            else {
-                style += "left: 50%;";
-            }
+    if (posTwo == "right") {
+      style += "left: calc(0% + 20px);";
+    }
+    else if (posTwo == "left") {
+      style += "left: calc(100% - 20px);";
+    }
+    else {
+      style += "left: 50%;";
+    }
 
-            return style;
-        }}
+    return style;
+  }}
         
         transform: translateX(-50%) rotate(45deg);
     }
@@ -132,21 +132,21 @@ const tooltipAnchor = styled('span')`
 
 const theTooltip = (props) => {
 
-    return (
-        <>
-            <Wrapper>
-                <Icon style={{ color: "red" }}>
-                    <Tooltip position={props.position ? props.position : "top center"} width={props.width}>
-                        {props.text}
-                        {props.otherOption && <div className="other-option"><span className="tooltip-anchor">More Info</span><Button onClick={() => console.log("Hello world")}>BUTTON</Button></div>}
-                    </Tooltip>
-                    <Trigger>
-                        {props.children ? props.children : <button>Click</button>}
-                    </Trigger>
-                </Icon>
-            </Wrapper>
-        </>
-    );
+  return (
+    <>
+      <Wrapper>
+        <Icon style={{ color: "red" }}>
+          <Tooltip position={props.position ? props.position : "top center"} width={props.width}>
+            {props.text}
+            {props.otherOption && <div className="other-option"><span className="tooltip-anchor">More Info</span><Button onClick={() => console.log("Hello world")}>BUTTON</Button></div>}
+          </Tooltip>
+          <Trigger>
+            {props.children ? props.children : <button>Click</button>}
+          </Trigger>
+        </Icon>
+      </Wrapper>
+    </>
+  );
 };
 
 export default theTooltip
