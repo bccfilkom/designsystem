@@ -6,29 +6,25 @@ import {
   SystemBlock,
   ComponentBlock,
 } from "../_utils/storybook";
-import { useState } from "react";
 import Button from '../button/component/Button'
-// import './component/tooltip.css';
 import Tooltip from './component/Tooltip'
-
 import styled from "styled-components";
+import './component/Tooltip.css'
 
 export default {
   title: "Component|Tooltip",
-  // component: [Tabs, TabPane],
   decorators: [SystemWrapper, withKnobs],
 };
 
 const Styles = styled.div`
     .wrapper {
-        width: 100%;
-        height: 300px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     }
 `;
-
 
 export const TopCenter = () => {
   return (
@@ -42,7 +38,8 @@ export const TopCenter = () => {
                 <Tooltip.Box position="top center" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <div onMouseEnter={() => {console.log("masuk")}}></div>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -62,6 +59,7 @@ export const TopCenter = () => {
 
             </div>
           </Styles>
+
         </Stack>
       </SystemBlock>
     </>
@@ -80,7 +78,7 @@ export const TopLeft = () => {
                 <Tooltip.Box position="top left" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -100,6 +98,8 @@ export const TopLeft = () => {
 
             </div>
           </Styles>
+        
+
         </Stack>
       </SystemBlock>
     </>
@@ -118,7 +118,7 @@ export const TopRight = () => {
                 <Tooltip.Box position="top right" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -138,6 +138,7 @@ export const TopRight = () => {
 
             </div>
           </Styles>
+
         </Stack>
       </SystemBlock>
     </>
@@ -156,7 +157,7 @@ export const BottomCenter = () => {
                 <Tooltip.Box position="bottom center" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -176,6 +177,7 @@ export const BottomCenter = () => {
 
             </div>
           </Styles>
+
         </Stack>
       </SystemBlock>
     </>
@@ -194,7 +196,7 @@ export const BottomLeft = () => {
                 <Tooltip.Box position="bottom left" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -214,6 +216,7 @@ export const BottomLeft = () => {
 
             </div>
           </Styles>
+
         </Stack>
       </SystemBlock>
     </>
@@ -232,7 +235,7 @@ export const BottomRight = () => {
                 <Tooltip.Box position="bottom right" width="300">
                   This tooltip shows the maximum amount of messages that should appear inside. Use a modal if more space is needed.
                   <Tooltip.OtherOptions>
-                    <Button type="text">BUTTON TEXT</Button>
+                    <Button className="clear-bg" type="text">BUTTON TEXT</Button>
                     <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
                   </Tooltip.OtherOptions>
                 </Tooltip.Box>
@@ -252,6 +255,7 @@ export const BottomRight = () => {
               
             </div>
           </Styles>
+
         </Stack>
       </SystemBlock>
     </>
