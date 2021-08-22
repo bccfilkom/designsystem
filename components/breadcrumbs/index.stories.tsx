@@ -22,6 +22,7 @@ const groupSeparator = "Separator";
 export const Example = () => (
   <SystemBlock title="BCC Design System - Breadcrumbs">
     <Stack spacing="xl">
+      {/* You can put any string into separator props for separate beetwen the items */}
       <Breadcrumbs
         separator={select(
           "Separator",
@@ -34,6 +35,7 @@ export const Example = () => (
         <BreadcrumbItem>
           {text("Item - 2", "Design System", groupItem)}
         </BreadcrumbItem>
+        {/* Use lastItem props at the end of the breadcrumb */}
         <BreadcrumbItem lastItem={boolean("Last Item", true, groupLastItem)}>
           {text("Item - 3", "Tabs", groupItem)}
         </BreadcrumbItem>
@@ -42,7 +44,7 @@ export const Example = () => (
   </SystemBlock>
 );
 
-export const Skelaton = () => (
+export const Skeleton = () => (
   <SystemBlock title="BCC Design System - Breadcrumbs">
     <Stack spacing="xl">
       <Breadcrumbs separator="/">

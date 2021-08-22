@@ -4,13 +4,17 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import {
   SystemWrapper,
   SystemBlock,
-  ComponentBlock,
 } from '../_utils/storybook';
 import Dropdown, { DropdownItem } from './component/Dropdown';
+
+const readme = require("./README.md");
 
 export default {
   title: 'Component|Dropdown',
   decorators: [SystemWrapper, withKnobs],
+  parameters: {
+    notes: { markdown: readme },
+  },
 };
 
 export const Default = () => {
