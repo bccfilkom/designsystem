@@ -3,6 +3,7 @@ import { Stack } from "../_foundations/common";
 import { withKnobs } from "@storybook/addon-knobs";
 import { SystemWrapper, SystemBlock } from "../_utils/storybook";
 import Button from "./component/Button";
+import "./button.css"
 
 const androidWhiteIcon = require("../_foundations/icon/android_white.svg") as string;
 const androidBlueIcon = require("../_foundations/icon/android_blue.svg") as string;
@@ -16,7 +17,7 @@ export const Primary = () => {
   return (
     <SystemBlock title="BCC Design System - Button">
       <Stack spacing="xl">
-        <Button onClick={() => console.log("Hello world")}>BUTTON</Button>
+        <Button onClick={() => console.log("Hello world")} className="btn-sample">BUTTON</Button>
         <br />
         <Button icon={androidWhiteIcon}>WITH ICON</Button>
       </Stack>

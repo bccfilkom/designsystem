@@ -1,7 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import style from "./ButtonStyle";
+
 export interface ButtonProps {
+  style?: React.CSSProperties;
   type?: "secondary" | "text" | "success" | "error";
   icon?: string;
   condensed?: boolean;
@@ -35,9 +37,9 @@ const ButtonElement = styled.button((props: ButtonProps) => {
 });
 
 const Button = (props: ButtonProps) => {
-  const { children, icon } = props;
+  const { children, icon, style } = props;
   return (
-    <ButtonElement {...props}>
+    <ButtonElement {...props} style={style}>
       {icon && <img src={icon} className="icon" alt="button-icon"/>}
       {children}
     </ButtonElement>
