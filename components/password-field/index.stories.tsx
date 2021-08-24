@@ -21,6 +21,7 @@ export const Default = () => {
     <SystemBlock title="BCC Design System - Password Field">
       <Stack spacing="xl">
         <Password
+          required={true}
           value={password}
           visibilityEye={isShow}
           handleChange={(e) => setPassord(e.target.value)}

@@ -126,7 +126,7 @@ const TextArea = ({
 TextArea.defaultProps = {
   disabled: false,
   isWarning: false,
-  placeholder: "Placeholder Text Area",
+  placeholder: "",
   hintText: "",
   value: "",
   required: false,
