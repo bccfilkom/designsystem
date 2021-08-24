@@ -25,7 +25,7 @@ const NavbarComp = styled.nav`
   }
 `;
 
-export const NavLogo = styled.div`
+export const NavLogo = styled.div<NavbarProps>`
   color: #fff;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ export const NavItem = styled.a<NavItemProps>`
   }
 `;
 
-export const NavIcon = styled.a`
+export const NavIcon = styled.a<NavbarProps>`
   color: #fff;
   display: flex;
   align-items: center;
@@ -79,7 +79,7 @@ export const NavIcon = styled.a`
   margin-left: 16px;
 `;
 
-export const Bars = styled.div`
+export const Bars = styled.div<NavbarProps>`
   display: none;
   color: #fff;
   /* visibility: hidden; */
@@ -90,7 +90,7 @@ export const Bars = styled.div`
   }
 `;
 
-export const NavMenu = styled.div`
+export const NavMenu = styled.div<NavbarProps>`
   display: flex;
   align-items: center;
   & > * {
@@ -101,7 +101,7 @@ export const NavMenu = styled.div`
   }
 `;
 
-export const NavIcons = styled.div`
+export const NavIcons = styled.div<NavbarProps>`
   display: flex;
   align-items: center;
 `;
