@@ -37,9 +37,9 @@ const ButtonElement = styled.button((props: ButtonProps) => {
 });
 
 const Button = (props: ButtonProps) => {
-  const { children, icon, style } = props;
+  const { children, icon, style, className } = props;
   return (
-    <ButtonElement {...props} style={style}>
+    <ButtonElement {...props} style={style} className={className}>
       {icon && <img src={icon} className="icon" alt="button-icon"/>}
       {children}
     </ButtonElement>
