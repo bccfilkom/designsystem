@@ -156,7 +156,7 @@ const Input = ({
 Input.defaultProps = {
   checked: false,
   disabled: false,
-  placeholder: "Placeholder Text",
+  placeholder: "",
   hintText: "",
   action: "normal",
   type: "text",

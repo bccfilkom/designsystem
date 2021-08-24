@@ -17,14 +17,19 @@ export interface DropdownItemProps {
   onClick?: Function;
 }
 
-const DropdownSelect = styled.div`
+interface DropdownSelectProps {
+  isOpen: boolean
+  onClick: () => void
+}
+
+const DropdownSelect: React.FC<DropdownSelectProps> = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 2px solid #d8d8d8;
   background-color: ${colors.white};
   border-radius: 10px;
-  border-color: ${(props) => (props.onOpen ? colors.biru03 : '#D8D8D8')};
+  border-color: ${(props) => (props.isOpen ? colors.biru03 : '#D8D8D8')};
   color: rgba(20, 48, 69, 0.5);
   font-size: 14px;
   padding: 16px;
@@ -89,7 +94,7 @@ const Dropdown = ({ value, children, placeholder, type }: DropdownProps) => {
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useOutsideClick({ref: wrapperRef, fun: () => setShow(false)});
+  useOutsideClick({ ref: wrapperRef, fun: () => setShow(false) });
   const itemWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { setShow });
@@ -97,8 +102,8 @@ const Dropdown = ({ value, children, placeholder, type }: DropdownProps) => {
   });
   return (
     <div ref={wrapperRef}>
-      <DropdownSelect onClick={() => setShow(!show)} onOpen={show}>
-        <div>{value || placeholder}</div>
+      <DropdownSelect onClick={() => setShow(!show)} isOpen={show}>
+        <p>{value || placeholder}</p>
         <div>
           <KeyboardArrowDown style={{ fontSize: '1.5em', color: '#143045' }} />
         </div>

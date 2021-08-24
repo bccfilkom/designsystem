@@ -13,7 +13,8 @@ export interface PasswordProps {
   handleChange?: () => void;
   handleShow?: () => void;
   style?: React.CSSProperties;
-  children?:React.ReactNode;
+  children?: React.ReactNode;
+  required?: Boolean;
 }
 
 const FieldContainer = styled.div`
@@ -68,16 +69,17 @@ const HintText = styled("div")`
   line-height: 14px;
 `;
 
-const Password= ({
+const Password = ({
   disabled,
   placeholder,
   hintText,
   handleChange,
   handleShow,
   value,
+  required,
   visibilityEye,
   ...rest
-}:PasswordProps) => {
+}: PasswordProps) => {
   return (
     <>
       <FieldContainer>
@@ -96,6 +98,7 @@ const Password= ({
           />
         )}
         <FieldInput
+          required={required}
           placeholder={placeholder}
           disabled={disabled}
           value={value}
@@ -112,8 +115,9 @@ Password.defaultProps = {
   disabled: false,
   visibilityEye: false,
   hintText: "",
-  placeholder: "Password",
+  placeholder: "",
   value: "",
+  required: false,
 };
 
 export default Password;

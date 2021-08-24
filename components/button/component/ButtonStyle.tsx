@@ -87,12 +87,12 @@ const primary = css`
 `;
 
 const text = css`
-  background-color: transparent;
+  background-color: initial;
   color: #3598db;
   border: none;
   ${rippleBase}
   &:hover {
-    background-color: #e4f4ff;
+    background-color: #EDF8FF;
   }
   &:after {
     background-image: radial-gradient(circle, #3598db 10%, transparent 10.01%);
