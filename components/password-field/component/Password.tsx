@@ -15,6 +15,7 @@ export interface PasswordProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   required?: Boolean;
+  action?: string;
 }
 
 const FieldContainer = styled.div`
@@ -59,6 +60,19 @@ const FieldInput = styled("input")`
       color: #d8d8d8;
     }
   }
+  &:focus {
+    border-color: ${(props) => {
+      switch (props.action) {
+        case "normal":
+          return "#3598DB";
+        case "warning":
+          return "#fb9e2e";
+        case "error":
+          return "#E84C3D";
+      }
+    }};
+    color: #143045;
+  }
 `;
 
 const HintText = styled("div")`
@@ -67,6 +81,16 @@ const HintText = styled("div")`
   font-size: 12px;
   color: #143045;
   line-height: 14px;
+  color: ${(props) => {
+    switch (props.action) {
+      case "normal":
+        return "#143045";
+      case "warning":
+        return "#fb9e2e";
+      case "error":
+        return "#E84C3D";
+    }
+  }};
 `;
 
 const Password = ({
@@ -78,6 +102,7 @@ const Password = ({
   value,
   required,
   visibilityEye,
+  action,
   ...rest
 }: PasswordProps) => {
   return (
@@ -101,6 +126,7 @@ const Password = ({
           required={required}
           placeholder={placeholder}
           disabled={disabled}
+          action={value.length > 0 ? action : "normal"}
           value={value}
           type={`${visibilityEye ? "text" : "password"}`}
           onChange={handleChange}
