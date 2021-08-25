@@ -1,8 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-import PropTypes from "prop-types";
-import { colors } from "../../_utils";
+
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Lock from "@material-ui/icons/Lock";
@@ -18,6 +16,7 @@ export interface PasswordProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   required?: Boolean;
+  action?: string;
 }
 
 const FieldContainer = styled("div")`
@@ -62,6 +61,19 @@ const FieldInput = styled("input")`
       color: #d8d8d8;
     }
   }
+  &:focus {
+    border-color: ${(props) => {
+      switch (props.action) {
+        case "normal":
+          return "#3598DB";
+        case "warning":
+          return "#fb9e2e";
+        case "error":
+          return "#E84C3D";
+      }
+    }};
+    color: #143045;
+  }
 `;
 
 const HintText = styled("div")`
@@ -70,6 +82,16 @@ const HintText = styled("div")`
   font-size: 12px;
   color: #143045;
   line-height: 14px;
+  color: ${(props) => {
+    switch (props.action) {
+      case "normal":
+        return "#143045";
+      case "warning":
+        return "#fb9e2e";
+      case "error":
+        return "#E84C3D";
+    }
+  }};
 `;
 
 const Password = ({
@@ -81,6 +103,7 @@ const Password = ({
   value,
   required,
   visibilityEye,
+  action,
   ...rest
 }: PasswordProps) => {
   return (
@@ -104,6 +127,7 @@ const Password = ({
           required={required}
           placeholder={placeholder}
           disabled={disabled}
+          action={value.length > 0 ? action : "normal"}
           value={value}
           type={`${visibilityEye ? "text" : "password"}`}
           onChange={handleChange}

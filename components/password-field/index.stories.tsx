@@ -86,3 +86,22 @@ export const Disabled = () => {
     </SystemBlock>
   );
 };
+
+export const Action = () => {
+  const [password, setPassord] = useState("");
+  const [isShow, setIsShow] = useState(false);
+  return (
+    <SystemBlock title="BCC Design System - Password Field">
+      <Stack spacing="xl">
+        <Password
+          value={password}
+          placeholder="Password"
+          action="error"
+          visibilityEye={isShow}
+          handleChange={(e) => setPassord(e.target.value)}
+          handleShow={() => setIsShow(!isShow)}
+        />
+      </Stack>
+    </SystemBlock>
+  );
+};
