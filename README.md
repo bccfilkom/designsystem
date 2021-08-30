@@ -13,6 +13,9 @@ npm install @bccfilkom/designsystem
 yarn add @bccfilkom/designsystem
 ```
 
+## Documentation
+Check out our [official documentation website](https://designsystem.bccfilkom.net/)
+
 ## Usage
 This is a quick example of using BCC - Design System component
 
